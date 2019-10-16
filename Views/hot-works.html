@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="/assets/css/hot-works.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <div class="header-top-inner">
+                <ul class="nav-bar">
+                    <li><a href="http://tk.v5cg.com/" target="_blank">CG工具</a></li>
+                    <li><a href="http://render.v5cg.com/" target="_blank">云渲染</a></li>
+                    <li><a href="https://www.cggogo.com" target="_blank">项目外包</a></li>
+                    <li><a href="https://rs.v5cg.com/" target="_blank">素材中心</a></li>
+                    <li><a href="https://im.v5cg.com/discover" target="_blank">作品展示</a></li>
+                    <li><a href="http://www.v5cg.com/" target="_blank">文创资讯</a></li>
+                    <li><a href="http://tk.v5cg.com/toolkit" target="_blank">客户端<i class="client-tip-icon"></i></a></li>
+                    <li class="header-more-nav">
+                        <div class="header-more-text">
+                            更多<span class="arrow-down"></span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a href="javascript:void(0)" target="_blank">会员服务</a></li>
+                            <li><a href="javascript:void(0)" target="_blank">会员中心</a></li> -->
+                            <li><a href="http://tk.v5cg.com/help.html" target="_blank">帮助中心</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav-login">
+                    <li><a href="//tk.v5cg.com/Login/index.html" class="user-login">登录</a></li>
+                    <li><a href="https://passport.skycreative.cn/register/index?fromSite=tk">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav-main">
+                <ul class="nav-bar" id="nav-bar">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/hot-people.html">热点人物</a></li>
+                    <li class="nav-active"><a href="/hot-works.html">热门作品</a></li>
+                    <li><a href="/hot-topic.html">热门话题</a></li>
+                    <li><a href="/personal-page.html">个人主页</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var headerDom = {
+                init: function (cb) {
+                    this.scroll(function (direction) {
+                        var headerTopOffsetHeight = document.getElementsByClassName('header-top')[0]
+                            .offsetHeight;
+                        var navDom = document.getElementsByClassName('nav')[0];
+                        var headerDom = document.getElementsByClassName('header')[0];
+                        if (direction === 'down') {
+                            headerDom.className = 'header header-fixed-out';
+                        } else if (direction === 'up') {
+                            headerDom.className = 'header header-fixed-in';
+                        }
+                    });
+                },
+                getScrollTop: function () {
+                    return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                },
+                throttle: function (cb) {
+                    clearTimeout(this.timmer);
+                    this.timmer = setTimeout(function () {
+                        cb && cb();
+                    }, 50);
+                },
+                scroll: function (fn) {
+                    var self = this;
+                    var beforeScrollTop = this.getScrollTop(),
+                        beforeTime = new Date().getTime(),
+                        fn = fn || function () { };
+                    this.addEvent(window, 'scroll', function () {
+                        self.throttle(function () {
+                            var afterScrollTop = self.getScrollTop(),
+                                afterTime = new Date().getTime(),
+                                delta = afterScrollTop - beforeScrollTop;
+                            if (delta === 0 || afterTime - beforeTime < 100) return false;
+                            fn(delta > 0 ? "down" : "up");
+                            beforeScrollTop = afterScrollTop;
+                            beforeTime = afterTime;
+                        });
+                    });
+                },
+                addEvent: function (obj, type, fn) {
+                    if (obj.attachEvent) { //ie
+                        obj.attachEvent('on' + type, function () {
+                            fn.call(obj);
+                        })
+                    } else {
+                        obj.addEventListener(type, fn, false);
+                    }
+                }
+            };
+            headerDom.init();
+        })()
+    </script>
+    <div class="layout">
+        <div class="container">
+            <div class="main-l">
+                <div class="main-l-tp">
+                    <a class="main-l-row" href="#"><span class="main-l-txt">首页</span><span
+                            class="main-l-ico icon-home"></span></a>
+                </div>
+                <div class="main-l-mm">
+                    <a class="main-l-row" href="#"><span class="main-l-txt">我的收藏</span><span
+                            class="main-l-ico icon-heart"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">我的赞</span><span
+                            class="main-l-ico icon-praise"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">我的关注</span><span
+                            class="main-l-ico icon-user"></span></a>
+                </div>
+                <div class="main-l-bt">
+                    <a class="main-l-row" href="#"><span class="main-l-txt">热点人物</span><span
+                            class="main-l-ico"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">热门作品</span><span
+                            class="main-l-ico"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">热门话题</span><span
+                            class="main-l-ico"></span></a>
+                </div>
+            </div>
+            <div class="main-c">
+                <div class="hot-works">
+                    <div class="hot-works-item">
+                        <div class="hot-works-head">
+                            <img
+                                src="http://lib.v5cg.com:8083/florilegium/e34d7f7d-1d51-45d7-ba46-dc91644186ee/30149dff-82e6-49fb-bbe6-48a2bc1e0723/8ebb8e4a-611a-4acf-87fd-63c03528e834_Cover_280_180.jpg" />
+                        </div>
+                        <div class="hot-works-body">
+                            <div class="hot-works-name">Loft-室外设计</div>
+                            <div class="hot-works-label">建筑设计</div>
+                            <div class="hot-works-other">
+                                <div class="hot-works-ocol hot-works-collect">
+                                    <i class="hot-works-icon icon-view"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-comment">
+                                    <i class="hot-works-icon icon-comment"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-thumb">
+                                    <i class="hot-works-icon icon-praise"></i>100
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hot-works-footer">
+                            <span class="hot-works-user">
+                                <img src="https://images.skycreative.cn/avatar/fastcg.png" />
+                                shz
+                            </span>
+                            <span class="hot-works-datetime">9月10日</span>
+                        </div>
+                    </div>
+                    <div class="hot-works-item">
+                        <div class="hot-works-head">
+                            <img
+                                src="http://lib.v5cg.com:8083/florilegium/e34d7f7d-1d51-45d7-ba46-dc91644186ee/30149dff-82e6-49fb-bbe6-48a2bc1e0723/8ebb8e4a-611a-4acf-87fd-63c03528e834_Cover_280_180.jpg" />
+                        </div>
+                        <div class="hot-works-body">
+                            <div class="hot-works-name">Loft-室外设计</div>
+                            <div class="hot-works-label">建筑设计</div>
+                            <div class="hot-works-other">
+                                <div class="hot-works-ocol hot-works-collect">
+                                    <i class="hot-works-icon icon-view"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-comment">
+                                    <i class="hot-works-icon icon-comment"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-thumb">
+                                    <i class="hot-works-icon icon-praise"></i>100
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hot-works-footer">
+                            <span class="hot-works-user">
+                                <img src="https://images.skycreative.cn/avatar/fastcg.png" />
+                                shz
+                            </span>
+                            <span class="hot-works-datetime">9月10日</span>
+                        </div>
+                    </div>
+                    <div class="hot-works-item">
+                        <div class="hot-works-head">
+                            <img
+                                src="http://lib.v5cg.com:8083/florilegium/e34d7f7d-1d51-45d7-ba46-dc91644186ee/30149dff-82e6-49fb-bbe6-48a2bc1e0723/8ebb8e4a-611a-4acf-87fd-63c03528e834_Cover_280_180.jpg" />
+                        </div>
+                        <div class="hot-works-body">
+                            <div class="hot-works-name">Loft-室外设计</div>
+                            <div class="hot-works-label">建筑设计</div>
+                            <div class="hot-works-other">
+                                <div class="hot-works-ocol hot-works-collect">
+                                    <i class="hot-works-icon icon-view"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-comment">
+                                    <i class="hot-works-icon icon-comment"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-thumb">
+                                    <i class="hot-works-icon icon-praise"></i>100
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hot-works-footer">
+                            <span class="hot-works-user">
+                                <img src="https://images.skycreative.cn/avatar/fastcg.png" />
+                                shz
+                            </span>
+                            <span class="hot-works-datetime">9月10日</span>
+                        </div>
+                    </div>
+                    <div class="hot-works-item">
+                        <div class="hot-works-head">
+                            <img
+                                src="http://lib.v5cg.com:8083/florilegium/e34d7f7d-1d51-45d7-ba46-dc91644186ee/30149dff-82e6-49fb-bbe6-48a2bc1e0723/8ebb8e4a-611a-4acf-87fd-63c03528e834_Cover_280_180.jpg" />
+                        </div>
+                        <div class="hot-works-body">
+                            <div class="hot-works-name">Loft-室外设计</div>
+                            <div class="hot-works-label">建筑设计</div>
+                            <div class="hot-works-other">
+                                <div class="hot-works-ocol hot-works-collect">
+                                    <i class="hot-works-icon icon-view"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-comment">
+                                    <i class="hot-works-icon icon-comment"></i>100
+                                </div>
+                                <div class="hot-works-ocol hot-works-thumb">
+                                    <i class="hot-works-icon icon-praise"></i>100
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hot-works-footer">
+                            <span class="hot-works-user">
+                                <img src="https://images.skycreative.cn/avatar/fastcg.png" />
+                                shz
+                            </span>
+                            <span class="hot-works-datetime">9月10日</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-r">
+                <div class="user-card">
+                    <div class="user-card-tp">
+                        <div class="user-card-head">
+                            <img src="https://images.skycreative.cn/avatar/fastcg.png" />
+                        </div>
+                    </div>
+                    <div class="user-card-intro">
+                        <div class="user-card-name">shz</div>
+                        <div class="user-card-occupation">开发者</div>
+                        <div class="user-card-statistics">
+                            <div class="user-card-statistics-dl">
+                                <div class="user-card-statistics-dt">100</div>
+                                <div class="user-card-statistics-dd">关注</div>
+                            </div>
+                            <div class="user-card-statistics-dl">
+                                <div class="user-card-statistics-dt">2000</div>
+                                <div class="user-card-statistics-dd">粉丝</div>
+                            </div>
+                            <div class="user-card-statistics-dl">
+                                <div class="user-card-statistics-dt">50</div>
+                                <div class="user-card-statistics-dd">动态</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hot-topic">
+                    <div class="hot-topic-head">
+                        热门话题<div class="hot-topic-refresh"><i class="icon-refresh refresh-ico"></i>换一换</div>
+                    </div>
+                    <div class="hot-topic-body">
+                        <ul>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-tp">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <img src="/assets/images/header/site-logo.png">
+                </div>
+                <div class="footer-col">
+                    <div class="footer-nav-title">
+                        <h3>核心业务</h3>
+                    </div>
+                    <ul>
+                        <li><a href="http://tk.v5cg.com/" target="_blank">CG工具</a></li>
+                        <li><a href="http://render.v5cg.com/" target="_blank">云渲染</a></li>
+                        <li><a href="https://www.cggogo.com/" target="_blank">项目外包</a></li>
+                        <li><a href="https://rs.v5cg.com/" target="_blank">CG素材</a></li>
+                        <li><a href="http://www.v5cg.com/" target="_blank">文创资讯</a></li>
+                        <li><a href="https://im.v5cg.com/discover" target="_blank">CG作品</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-nav-title">
+                        <h3>帮助中心</h3>
+                    </div>
+                    <ul>
+                        <li><a href="/help.html" target="_blank">常见问题</a></li>
+                        <li><a href="/developmentGuide.html">开发者指南</a></li>
+                        <li><a href="https://www.cggogo.com/Help" target="_blank">项目外包问题</a></li>
+                        <li><a href="http://www.skycreative.cn/home/about#connect" target="_blank">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-nav-title">
+                        <h3>关于我们</h3>
+                    </div>
+                    <ul>
+                        <li><a href="http://www.skycreative.cn/home/about" target="_blank">公司详情</a></li>
+                        <li><a href="http://www.skycreative.cn/home/Timeline" target="_blank">企业事件</a></li>
+                        <li><a href="javascript:void(0)" target="_blank">条框声明</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-qrcode">
+                    <img src="/assets/images/header/zone.jpg">
+                    <p>微信公众平台<br>扫码关注我们</p>
+                </div>
+                <div class="footer-col footer-contact">
+                    <div class="footer-row">
+                        <img src="/assets/images/header/contact-phone.png">
+                        <dl>
+                            <dt>服务电话</dt>
+                            <dd>0755-2348-4041</dd>
+                        </dl>
+                    </div>
+                    <div class="footer-row">
+                        <img src="/assets/images/header/contact-qq.png">
+                        <dl>
+                            <dt>客服QQ</dt>
+                            <dd>工具：<div class="customer-service-list">1217747119<br>1661904870</div>
+                            </dd>
+                            <dd>外包：<div class="customer-service-list">164953149</div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-inner footer-link">
+                <div>
+                    <p><a href="https://www.cggogo.com/projects" target="_blank">设计师兼职网</a></p>
+                    <p><a href="http://www.bigcg.me/" target="_blank">BIGCG</a></p>
+                    <p><a href="http://tk.v5cg.com/tools/793.html" target="_blank">睫毛笔刷</a></p>
+                    <p><a href="https://www.qingyun6.com/" target="_blank">青云模型库</a></p>
+                    <p><a href="http://c4dsky.com/" target="_blank">书生CG资源网</a></p>
+                    <p><a href="http://www.cgylw.com/" target="_blank">CG游麟网</a></p>
+                    <p><a href="http://www.aboutcg.com/" target="_blank">ABOUTCG</a></p>
+                    <p><a href="http://www.xy-share.com" target="_blank">3D模型</a></p>
+                    <p><a href="http://www.cgboo.com/" target="_blank">CG模型</a></p>
+                    <p><a href="http://www.element3ds.com/" target="_blank">微元素</a></p>
+                    <p><a href="http://gjdhjc.com/" target="_blank">国际动画教程网</a></p>
+                    <p><a href="http://hkcgart.com/" target="_blank">花魁小站</a></p>
+                    <p><a href="http://www.zf3d.com/" target="_blank">朱峰社区</a></p>
+                    <p><a href="http://www.51render.com/" target="_blank">51render</a></p>
+                    <p><a href="http://www.kalaoo.com/" target="_blank">游戏美术共享平台</a></p>
+                    <p><a href="http://expo.jc001.cn/" target="_blank">建材展会</a></p>
+                    <p><a href="http://www.cgwon.com/" target="_blank">cg培训</a></p>
+                    <p><a href="http://www.simpneed.com/" target="_blank">3d打印定制</a></p>
+                    <p><a href="http://www.cgahz.com/" target="_blank">AE模板</a></p>
+                    <p><a href="http://hanshilin.com/" target="_blank">韩世麟图像日志</a></p>
+                    <p><a href="http://www.sketchupvr.com/" target="_blank">ARC设计中文网</a></p>
+                    <p><a href="http://www.c4dcn.com/" target="_blank">菜鸟C4D</a></p>
+                    <p><a href="http://3d.jzsc.net/" target="_blank">典尚三维模型</a></p>
+                    <p><a href="http://www.fangdede.com/" target="_blank">方的的室内设计网</a></p>
+                    <p><a href="http://www.huiyisheji.com/" target="_blank">免费素材网</a></p>
+                    <p><a href="http://iugame.me/" target="_blank">爱游美术资源网</a></p>
+                    <p><a href="http://zshid.com/" target="_blank">建筑视界</a></p>
+                    <p><a href="http://www.heezii.com/" target="_blank">西安包装设计</a></p>
+                    <p><a href="https://www.hsziz.com/" target="_blank">花生模型网</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-btm">
+            <p>TK.V5CG.COM</p>
+            <p>网站备案：粤ICP备15049944-4号</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="/assets/js/libs/require-2.1.15.js"></script>
+    <script type="text/javascript" src="/assets/js/config.js"></script>
+    <script>
+        require(['Index/index']);
+    </script>
+</body>
+
+</html>

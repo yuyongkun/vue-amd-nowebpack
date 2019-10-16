@@ -1,0 +1,148 @@
+@import "index";
+
+.personal-header {
+    width: 100%;
+
+    .personal-header-tp {
+        display: flex;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+        background: url(http://resource.u4sky.com/banner//e8952d7d42f14ce284919f2190cc3705.jpg) no-repeat;
+        background-size: cover;
+
+        .personal-header-inner {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .personal-portrait {
+                width: 94px;
+                height: 94px;
+                border: 3px solid #ddd;
+                border-radius: 50%;
+                margin-bottom: 20px;
+                overflow: hidden;
+
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            .personal-name {
+                line-height: 1;
+                margin-bottom: 30px;
+                color: #fff;
+            }
+
+            .personal-operate {
+                width: 100%;
+
+                .btn-yellow {
+                    width: 100px;
+                    height: 36px;
+                    line-height: 36px;
+                    padding: 0px;
+
+                    .icon-plus, .icon-message {
+                        font-size: 18px;
+                        vertical-align: -3px;
+                    }
+                }
+
+                .personal-follow {
+                    margin-right: 90px;
+                }
+
+                .personal-send-letter {
+                    .icon-message {
+                        margin-right: 9px;
+                    }
+                }
+            }
+        }
+    }
+
+    .personal-header-nav {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+
+        .personal-header-col {
+            flex: 1;
+            text-align: center;
+
+            span {
+                display: inline-block;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 45px;
+                border-bottom: 3px solid transparent;
+            }
+
+            span.personal-header-active {
+                border-bottom-color: $base-color;
+            }
+        }
+    }
+}
+
+.personal-l {
+    width: 300px;
+    margin-right: 10px;
+
+    .personal-static {
+        display: flex;
+        padding: 28px 0;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        background-color: #fff;
+
+        dl {
+            flex: 1;
+            border-right: 1px solid #ddd;
+            text-align: center;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            dt {}
+
+            dd {}
+        }
+    }
+
+    .personal-baseinfo {
+        border-radius: 3px;
+        background-color: #fff;
+
+        .personal-baseinfo-head {
+            padding: 20px;
+            line-height: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .personal-baseinfo-body {
+            padding: 0 20px;
+            border-bottom: 1px solid #ddd;
+
+            .personal-baseinfo-row {
+                padding: 14px 0;
+                line-height: 1;
+                border-bottom: 1px solid #ddd;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .personal-baseinfo-footer {
+            padding: 10px 0;
+            line-height: 1;
+            text-align: center;
+        }
+    }
+}

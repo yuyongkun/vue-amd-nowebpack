@@ -1,0 +1,131 @@
+/*
+常用全局变量
+*/
+$base-color:#ffe300;
+$base-color-2:#ffc000;
+$color-grey:#343a40;
+$color-light-grey:#b2b2b2;
+$color: #0078d7;
+$shadows: 0 0 5px #c0c0c0;
+$imgpath:'/assets/images';
+$darken-value:7%;
+$lighten-value:7%;
+$border:1px solid #ddd;
+/*
+抽离公共样式
+*/
+
+@mixin pageBar {
+    float: left;
+    width: 100%;
+    padding: 15px;
+
+    .pagination {
+        float: right;
+
+        li.active {
+            span {
+                background: #D4D3D3;
+
+                &:hover {
+                    background: #D4D3D3;
+                }
+            }
+        }
+
+        li.disabled {
+            a {
+                cursor: not-allowed;
+
+                &:hover {
+                    background: #fff;
+                }
+            }
+        }
+
+        li {
+            float: left;
+
+            a,
+            span {
+                display: inline-block;
+                padding: 8px 20px;
+                background: #fff;
+                margin-right: 3px;
+                border: 1px solid #dddddd;
+                border-radius: 3px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                cursor: pointer;
+
+                &:hover {
+                    background: #f2f2f2;
+                }
+            }
+        }
+    }
+}
+
+@mixin webkit-scrollbar {
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+        height: 50px;
+        background-color: #555;
+        -webkit-border-radius: 5px;
+        outline-offset: -2px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        height: 50px;
+        background-color: #6c6e71;
+        -webkit-border-radius: 5px;
+    }
+}
+
+@mixin transition($csspropety: all, $time: 0.2s, $ease:linear, $delay:0s) {
+    transition: $csspropety $time $ease $delay;
+    -webkit-transition: $csspropety $time $ease $delay;
+    -moz-transition: $csspropety $time $ease $delay;
+    -o-transition: $csspropety $time $ease $delay;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity/100;
+    filter: alpha(opacity=$opacity);
+}
+
+//默认是向下的箭头
+@mixin arrow($border-width:5px 5px 0, $border-color:#333 transparent transparent) {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: $border-width;
+    border-color: $border-color;
+}
+
+// 按钮
+@mixin btn($display:inline-block, $padding:9px 12px, $font-size:12px, $color:#333, $border:1px solid #ddd, $border-radius:2px, $background-color:#fff) {
+    display: $display;
+    line-height: 1;
+    border: $border;
+    border-radius: $border-radius;
+    text-align: center;
+    font-size: $font-size;
+    color: $color;
+    background-color: $background-color;
+    padding: $padding;
+    -webkit-appearance: none;
+    @include transition($csspropety: all, $time: 0.1s);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}

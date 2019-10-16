@@ -1,0 +1,341 @@
+﻿@import "./common/variable";
+@import "base";
+
+.main-c {
+    .main-publish-area {
+        margin-bottom: 10px;
+        padding: 38px 20px 12px;
+        background-color: #fff;
+
+        .main-publish-inpt {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            margin-bottom: 6px;
+            resize: none;
+            outline: none;
+
+            &:focus {
+                border-color: $base-color;
+            }
+        }
+
+        .main-publish-operate {
+            display: flex;
+
+            .main-publish-iconlist {
+                display: flex;
+                flex: 1;
+                align-items: center;
+
+                .main-publish-icon {
+                    flex: 1;
+                    height: 20px;
+                    padding-left: 28px;
+                    background: url(#{$imgpath}/img.png) no-repeat;
+                    cursor: pointer;
+                    &:hover{
+                        color: #fa5c7c;
+                    }
+                }
+                .main-publish-icon-expression{
+                    background-position: 0 -20px;
+                }
+                .main-publish-icon-pic{
+                    background-position: 0 -60px;
+                }
+                .main-publish-icon-video{
+                    background-position: 0 -120px;
+                }
+                .main-publish-icon-topic{
+                    background-position: 0 -80px;
+                }
+                .main-publish-icon-quest{
+                    background-position: 0 0px;
+                }
+                .main-publish-icon-course{
+                    background-position: 0 -100px;
+                }
+
+            }
+
+            .main-publish-send {
+                display: flex;
+
+                .main-publish-btn {
+                    padding: 11px 36px;
+                    font-weight: bold;
+                    &:hover{
+                        background-color:darken($base-color,1%);  
+                    }
+                }
+            }
+        }
+    }
+
+    .main-published {
+        .main-c-nav {
+            margin-bottom: 10px;
+
+            .main-nav-items {
+                display: flex;
+                padding: 12px 20px;
+                background-color: #fff;
+            }
+
+            .main-nav-item {
+                flex: 1;
+                font-size: 12px;
+                cursor: pointer;
+            }
+            .main-nav-item.main-nav-active{
+                font-weight: bold;
+            }
+
+            .main-c-tip {
+                text-align: center;
+                padding: 10px 0px;
+                background-color: #f9b8b8;
+
+                .main-c-btn {
+                    font-size: 12px;
+                    color: #fa5c7c;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .main-list-wrap {
+            .main-list {
+                margin-bottom: 10px;
+                background-color: #fff;
+
+                .main-msg-title {
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 20px;
+                    border-bottom: 1px solid #ddd;
+
+                    em {
+                        display: inline-block;
+                        width:13px;
+                        height: 13px;
+                        margin-right: 8px;
+                        background: url(#{$imgpath}/img.png) no-repeat;
+                        background-size: cover;
+                    }
+                }
+
+                .main-msg-body {
+                    padding: 10px 20px;
+
+                    .main-msg-head {
+                        float: left;
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        overflow: hidden;
+
+                        img {
+                            display: block;
+                        }
+                    }
+
+                    .main-msg-rt {
+                        overflow: hidden;
+
+                        .main-msg-simple {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 10px;
+                            line-height: 1;
+                            .main-c-username {
+                                margin-right: 10px;
+                                font-size: 16px;
+                                font-weight: bold;
+                            }
+
+                            .main-c-datetime {
+                                font-size: 12px;
+                                color: #aaa;
+                            }
+                        }
+
+                        .main-msg-occupation {
+                            line-height: 1;
+                            margin-bottom: 15px;
+                            font-size: 12px;
+                            color: #788cff;
+                        }
+
+                        .main-msg-cc {
+                            line-height: 24px;
+                        }
+                    }
+                }
+                .main-msg-footer{
+                    position: relative;
+                    display: flex;
+                    height: 38px;
+                    
+                   border-top: 1px solid #ddd;
+                    .main-msg-item{
+                        display: flex;
+                        flex: 1;
+                        height: 100%;
+                        align-items: center;
+                        justify-content: center;
+                        border-right: 1px solid #ddd;
+                        color:#b3b3b3;
+                        cursor: pointer;
+                        &:hover{
+                            color:$color;
+                        }
+                        &:last-child{
+                            border-right: none;
+                        }
+                        .main-msg-ico{
+                            margin-right: 5px;
+                        }
+                    }
+                   
+                }
+            }
+            .main-comment-wrap{
+                position: relative;
+                padding:10px 20px 0;
+                margin-bottom: 10px;
+                margin-top: -10px;
+                background-color: #f2f2f2;
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: -7px;
+                    left: 400px;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 8px solid #eee;
+                }
+                .main-comment-head{
+                    width:30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        display: block;
+                        width:100%;
+                    }
+                }
+                .main-comment-opreate{
+                    display: flex;
+                    border-bottom: 1px solid #ddd;
+                    padding-bottom: 10px;
+                    
+                    .main-comment-rt{
+                        flex: 1;
+                        margin-left: 10px;
+                        .main-comment-ipt-area{
+                            margin-bottom: 7px;
+                            .main-comment-ipt{
+                                width:100%;
+                                height: 30px;
+                                padding:0 5px;
+                                outline: none;
+                                &:focus{
+                                    border:1px solid red;
+
+                                }
+                            }
+                        }
+                        .main-comment-btm{
+                            display: flex;
+                            align-items: center;
+                            .main-comment-options{
+                                height: 20px;
+                                .main-comment-ico{
+                                    display: inline-block;
+                                    width:20px;
+                                    height: 20px;
+                                    background: url(#{$imgpath}/img.png) no-repeat;
+                                    cursor: pointer;
+                                }
+                                .icon-comment-expression{
+                                    margin-right: 10px;
+                                    background-position: 0 -20px;
+                                }
+                                .icon-comment-file{
+                                    background-position: 0 -60px;
+                                }
+                            }
+                            .main-comment-send{
+                                width:84px;
+                                padding: 6px 12px;
+                                margin-left: auto;
+
+                            }
+                        }
+                    }
+                }
+                .main-comment-list{
+                    padding-bottom: 10px;
+                    .main-comment-item{
+                        .main-comment-self{
+                            display: flex;
+                            padding:15px 0px;
+                            .main-comment-head{
+                                margin-right: 10px;
+                            }
+                        }
+                        .main-comment-detail{
+                            flex: 1;
+.main-comment-intro{
+    margin-bottom: 3px;
+    .main-comment-username{
+        color:#fa5c7c;
+    }
+    .main-comment-txt{
+        margin-left: 4px;
+    }
+}
+.main-comment-datetime{
+    display: flex;
+    font-size: 12px;
+    color:#b3b3b3;
+    .main-comment-opt{
+        display: flex;
+        margin-left: auto;
+        .main-comment-opt-reply{
+            padding-right: 10px;
+            margin-right: 10px;
+            border-right: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .main-comment-opt-praise{
+            cursor: pointer;
+            .icon-praise{
+                margin-right: 3px;
+            }
+        }
+    }
+}
+                        }
+                        .main-comment-reply-area{
+                            padding: 0 10px;
+                            background-color: #e9e9e9;
+                            .main-comment-detail{
+                                padding:10px 0px;
+                                border-bottom: 1px solid #ddd;
+                                &:last-child{
+                                    border-bottom: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+

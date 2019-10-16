@@ -1,0 +1,250 @@
+@import "variable";
+
+// 箭头
+.arrow-up {
+    @include arrow($border-width:0 5px 5px, $border-color: transparent transparent #333);
+}
+
+.arrow-down {
+    @include arrow($border-width:5px 5px 0, $border-color:#333 transparent transparent);
+}
+
+.arrow-left {
+    @include arrow($border-width:5px 5px 5px 0, $border-color: transparent #333 transparent transparent);
+}
+
+.arrow-right {
+    @include arrow($border-width:5px 0 5px 5px, $border-color: transparent transparent transparent #333);
+}
+
+// 清除浮动
+.clearfix {
+    &:after {
+        content: '.';
+        display: block;
+        height: 0px;
+        visibility: hidden;
+        clear: both;
+    }
+}
+
+// 隐藏
+.hidden {
+    display: none;
+}
+
+.visiable {
+    display: block;
+}
+
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #000000;
+    @include opacity($opacity: 40);
+    z-index: 9999;
+}
+
+// 按钮
+.btn {
+    @include btn;
+
+    &:active {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: #ddd;
+        border-color: #ccc;
+    }
+}
+
+.btn-primary {
+    @include btn($background-color:#0078d7, $border:1px solid transparent, $color:#fff);
+
+    &:hover {
+        background-color: darken(#0078d7, $darken-value);
+        border-color: darken(#0078d7, $darken-value);
+    }
+}
+
+.btn-success {
+    @include btn($background-color:#00cc66, $border:1px solid transparent, $color:#fff);
+
+    &:hover {
+        background-color: darken(#00cc66, $darken-value);
+        border-color: darken(#00cc66, $darken-value);
+    }
+}
+
+.btn-info {
+    @include btn($background-color:#909399, $border:1px solid transparent, $color:#fff);
+
+    &:hover {
+        background-color: darken(#909399, $darken-value);
+        border-color: darken(#909399, $darken-value);
+    }
+}
+
+.btn-warning {
+    @include btn($background-color:#ff9900, $border:1px solid transparent, $color:#fff);
+
+    &:hover {
+        background-color: darken(#ff9900, $darken-value);
+        border-color: darken(#ff9900, $darken-value);
+    }
+}
+
+.btn-danger {
+    @include btn($background-color:#ff3300, $border:1px solid transparent, $color:#fff);
+
+    &:hover {
+        background-color: darken(#ff3300, $darken-value);
+        border-color: darken(#ff3300, $darken-value);
+    }
+}
+
+/**分页**/
+.list-pagination {
+    margin: 20px 0;
+    text-align: center;
+
+    ul.pagination {
+        .active {
+            color: #fff;
+            background-color: $color;
+            border-color: transparent;
+
+            a {
+                color: #fff;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 6px;
+            border-radius: 4px;
+            width: 40px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            border: 1px solid #ddd;
+
+            a {
+                display: block;
+                color: #3a3a3a;
+
+                &:hover {
+                    color: $color;
+                }
+            }
+        }
+
+        li.disabled {
+            a {
+                color: #999;
+
+                &:hover,
+                &:focus {
+                    color: #999;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}
+
+
+// 水平对齐方式
+.text-align-middle {
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+// 垂直对齐方式
+.vat {
+    vertical-align: top;
+}
+
+.vam {
+    vertical-align: middle;
+}
+
+/*行内显示*/
+.display-inline {
+    display: inline-block;
+}
+// 块显示
+.display-block {
+    display: block;
+}
+// 浮动
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+// 链接
+.alink,
+.link {
+    color: #0078d7;
+
+    &:hover {
+        color: darken(#0078d7, 5%);
+    }
+}
+
+.alink:hover {
+    text-decoration: underline;
+}
+// 输入框
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    height: 34px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    vertical-align: middle;
+    @include transition($csspropety: border-color, $time: 0.2s, $ease:cubic-bezier(.645, .045, .355, 1));
+
+    &:hover {
+        border-color: #aaa;
+    }
+
+    &:focus {
+        border-color: #409eff;
+        outline: none;
+    }
+
+
+}
+
+.form-label-inline {
+    display: inline-block;
+}
+
+.form-label {
+    display: block;
+}

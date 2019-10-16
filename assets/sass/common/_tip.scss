@@ -1,0 +1,78 @@
+
+@import "variable";
+/*tip提示*/
+.tip-container {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0px;
+    z-index: 99999;
+    transform: translateY(0);
+
+    .tip-inner {
+        height: 90px;
+        padding: 19px 0;
+        font-size: 14px;
+        color: #fff;
+        background-color: #0078D7;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0 3px 1px;
+    }
+
+    .tip-icon {
+        position: absolute;
+        width: 28px;
+        height: 27px;
+        left: 50%;
+        margin-left: -13px;
+        background-image: url("#{$imgpath}/tip/tip-icon.png");
+        background-position: 0px 0px;
+    }
+
+    .tip-text {
+        float: left;
+        width: 100%;
+        margin-top: 28px;
+        padding-top: 5px;
+        text-align: center;
+    }
+
+    .tip-inner.tip-inner-success {
+        background-color: #0078D7;
+
+        .tip-icon {
+            background-position: 0px 0px;
+        }
+    }
+
+    .tip-inner.tip-inner-error {
+        background-color: #ff3300;
+
+        .tip-icon {
+            background-position: -29px 0px;
+        }
+    }
+
+    .tip-inner.tip-inner-warning {
+        background-color: #ff9900;
+
+        .tip-icon {
+            background-position: -57px 0px;
+        }
+    }
+
+    .tip-inner.tip-inner-info {
+        background-color: #00cc66;
+
+        .tip-icon {
+            background-position: -85px 0px;
+        }
+    }
+
+}
+
+.tip-container.tip-container-effects {
+    transform: translateY(-100%);
+    @include transition($time:0.5s,$delay:1s);
+    
+    transform: translateY(0)\9\0;
+}

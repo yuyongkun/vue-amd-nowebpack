@@ -1,0 +1,277 @@
+@import "variable";
+
+.slider-bar {
+    position: fixed;
+    top: 50%;
+    right: 0px;
+    width: 100px;
+    padding: 30px 0;
+    margin-top: -254px;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 14px;
+    box-shadow: 0px 0px 3px 2px rgba(64, 64, 64, 0.2);
+    background-color: #fff;
+    z-index: 2;
+
+    .slider-bar-inner {
+        cursor: pointer;
+    }
+
+    .slider-bar-row {
+        display: block;
+        position: relative;
+        margin-bottom: 25px;
+        line-height: 1;
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+        &:hover{
+            .slider-bar-dropmenu {
+                transform: translate(-100px, 0);
+                animation: moveToright 0.6s forwards;
+            }
+            .slider-bar-text {
+                color: $base-color-2;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .slider-bar-dropmenu {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        transform: translate(350px, 0);
+
+        .slider-bar-row {
+            margin-bottom: 10px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    @keyframes moveToright {
+        from {
+            opacity: 0;
+            transform: translate(-150px, 0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(-100px, 0);
+        }
+    }
+
+    .slider-bar-icon {
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        transition: background-image 0.2s;
+    }
+
+    .slider-bar-text {
+        margin-top: 10px;
+        line-height: 1;
+        color: #666;
+    }
+
+    .slider-bar-btn1 {
+        display: inline-block;
+        width: 110px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        border-radius: 4px;
+        border: 1px solid $base-color-2;
+        font-size: 12px;
+        color: $base-color-2;
+
+        &:hover {
+            background-color: $base-color-2;
+            color: #fff;
+        }
+    }
+
+    .slider-bar-btn2 {
+        display: inline-block;
+        width: 150px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 18px;
+        background-color: $base-color-2;
+        color: #fff;
+        &:hover {
+            background-color: darken($base-color-2, $darken-value);
+        }
+    }
+
+    .slider-bar-tip {
+        margin-right: 5px;
+        width: 174px;
+        padding: 20px 0px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        font-size: 14px;
+        box-shadow: -1px 0px 3px 2px rgba(64, 64, 64, 0.2);
+        background-color: #fff;
+        overflow: hidden;
+
+        li {
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .slider-bar-help {
+        .slider-bar-icon {
+            background: url("#{$imgpath}/slider/help.png") no-repeat center;
+        }
+
+        &:hover {
+            .slider-bar-icon {
+                background-image: url("#{$imgpath}/slider/help-active.png");
+            }
+        }
+    }
+
+    .slider-bar-customerservice {
+        color: #999;
+
+        .slider-bar-tip {
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: #f2f2f2;
+
+            .slider-bar-row {
+                padding-top: 20px;
+                margin-bottom: 0px;
+
+                &:first-child {
+                    margin-top: -20px;
+                    margin-left: -10px;
+                    margin-right: -10px;
+                    padding: 10px 0;
+                    background-color: #fff;
+                    font-family: '微软雅黑';
+                }
+
+                &:last-child {
+                    font-size: 12px;
+                }
+
+                .slider-bar-btn2 img {
+                    width: 18px;
+                    margin-right: 10px;
+                    vertical-align: -4px;
+                }
+            }
+
+            .slider-bar-row.slider-bar-phone {
+                padding-bottom: 20px;
+                border-bottom: 1px solid #ddd;
+                font-size: 14px;
+                color: $base-color-2;
+
+                img {
+                    margin-right: 5px;
+                    vertical-align: -4px;
+                }
+            }
+        }
+
+        .slider-bar-icon {
+            background: url("#{$imgpath}/slider/customerservice.png") no-repeat center;
+        }
+
+        &:hover {
+            .slider-bar-icon {
+                background-image: url("#{$imgpath}/slider/customerservice-active.png");
+            }
+        }
+    }
+
+    .slider-bar-recharge {
+        .slider-bar-icon {
+            background: url("#{$imgpath}/slider/recharge.png") no-repeat center;
+        }
+
+        &:hover {
+            .slider-bar-icon {
+                background-image: url("#{$imgpath}/slider/recharge-active.png");
+            }
+        }
+    }
+
+    .slider-bar-coupon {
+        .slider-bar-icon {
+            background: url("#{$imgpath}/slider/coupon.png") no-repeat center;
+        }
+
+        &:hover {
+            .slider-bar-icon {
+                background-image: url("#{$imgpath}/slider/coupon-active.png");
+            }
+        }
+    }
+
+    .slider-bar-communicate {
+        .slider-bar-btn1 {
+            width: 142px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .slider-bar-icon {
+            background: url("#{$imgpath}/slider/communicate.png") no-repeat center;
+        }
+
+        &:hover {
+            .slider-bar-icon {
+                background-image: url("#{$imgpath}/slider/communicate-active.png");
+            }
+        }
+
+        .slider-communicate-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            vertical-align: -4px;
+            margin-right: 5px;
+            background: url("#{$imgpath}/slider/qun-icon.png") no-repeat center;
+        }
+
+        .slider-bar-row {
+            &:hover {
+                color: $base-color-2;
+
+                .slider-communicate-icon {
+                    background: url("#{$imgpath}/slider/qun-icon-active.png") no-repeat center;
+                }
+            }
+        }
+    }
+
+    .slider-bar-top {
+        .slider-bar-icon {
+            background: url("#{$imgpath}/slider/top.png") no-repeat center;
+        }
+
+        &:hover {
+            .slider-bar-icon {
+                background-image: url("#{$imgpath}/slider/top-active.png");
+            }
+        }
+    }
+}

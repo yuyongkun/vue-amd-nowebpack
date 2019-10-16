@@ -1,0 +1,111 @@
+@import "./common/variable";
+@import "base";
+
+.main-c {
+    .nav-filter {
+        padding:20px 24px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        .nav-filter-title {
+            margin-bottom: 12px;
+        }
+
+        .nav-filter-list {
+            display: flex;
+            color:#666;
+            .nav-filter-item {
+                padding:5px 25px;
+                border-radius: 15px;
+                margin-right: 50px;
+                background-color: transparent;
+                cursor: pointer;
+            }
+            .nav-filter-active{
+                background-color: $base-color;
+                color: #333;
+            }
+        }
+    }
+    .hot-people-body{
+        padding:20px 24px;
+        background-color: #fff;
+        .hot-people-head{
+            display: flex;
+            margin-bottom: 10px;
+            .hot-people-search{
+                margin-left: auto;
+            }
+        }
+        .hot-people-list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .hot-people-item{
+                display: flex;
+                width: 350px;
+                padding:20px;
+                margin-bottom: 10px;
+                align-items: center;
+                background-color: #f2f2f5;
+                .hot-people-portrait{
+                    width:53px;
+                    height: 53px;
+                    border: 3px solid #ddd;
+                    border-radius: 50%;
+                    margin-right:20px;
+                    overflow: hidden;
+
+                    img{
+                        display: block;
+                        width:100%;
+                        
+                    }
+                }
+                .hot-people-rt{
+                    flex: 1;
+                    border-left: 1px solid #ddd;
+                    padding-left: 10px;
+                    .hot-people-name{
+                        line-height: 1;
+                        font-size: 16px;
+                        margin-bottom: 14px;
+                        font-weight: bold;
+                    }
+                    .hot-people-intro{
+                        display: flex;
+                        margin-bottom: 14px;
+                        font-size: 12px;
+                        line-height: 1;
+                        span{
+                            margin-right: 3px;
+                            padding-right: 8px;
+                            border-right: 1px solid #ddd;
+                            &:last-child{
+                                border-right: none;
+                            }
+                        }
+                    }
+                    .hot-people-occupation{
+                        margin-bottom: 20px;
+                        .hot-people-occupation-label{
+                            display: inline-block;
+                            font-size: 12px;
+                            padding:0px 6px;
+                            border-radius: 3px;
+                            border:1px solid #19baa6;
+                            color: #19baa6;
+                        }
+                    }
+                    .hot-people-operate{
+                        .hot-people-letter,.hot-people-follow{
+                            padding:6px 30px;
+                        }
+                        .hot-people-follow{}
+                    }
+                }
+                
+            }
+            
+        }
+    }
+}
