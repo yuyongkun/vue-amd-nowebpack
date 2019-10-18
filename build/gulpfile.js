@@ -13,15 +13,14 @@ const minifyCshtml = require('gulp-cshtml-minify')
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
-const rename = require("gulp-rename");
 const babel = require('gulp-babel');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
-/*-------------------------------------->版本发布<-----------------------------------------*/
 
+/*-------------------------------------->版本发布<-----------------------------------------*/
 
 gulp.task('build', sequence('clean:release', 'clean:tmp', 'rjs'));
 
@@ -39,15 +38,15 @@ gulp.task('clean:tmp', () => {
         .pipe(clean());
 });
 
-// js合并
+
 gulp.task('rjs', () => {
     const exclude = ['jquery', 'underscore', 'common', 'bootstrap', 'cropper', 'resize_extend',
-          'ueditor.all.min', 'ZeroClipboard.min', 'shCore', 'shBrushJScript', 'zh-cn',  
-         'jquery.lazyload', 'text', 'jqPaginator'
+        'ueditor.all.min', 'ZeroClipboard.min', 'shCore', 'shBrushJScript', 'zh-cn',
+        'jquery.lazyload', 'text', 'jqPaginator'
     ];
     rjs.optimize({
         appDir: '../assets',
-        baseUrl: 'js',
+        baseUrl: 'js/modules',
         dir: './tmp/assets',
         findNestedDependencies: false, //代码内部写的require也计算在打包内
         preserveLicenseComments: false, //去掉头部版权声明
@@ -58,10 +57,10 @@ gulp.task('rjs', () => {
         modules: [
             // index--index.js
             {
-                name: "./Index/index",
+                name: "../index/index",
+                include: ['index/viewModel/index'],
                 exclude: exclude
             },
-
         ]
     }, () => {
         gulp.start('release');
@@ -70,10 +69,11 @@ gulp.task('rjs', () => {
 
 gulp.task('release', sequence('js:hanlder', 'img:hanlder', 'css:hanlder', 'html:hanlder', 'clean:tmp'));
 
-gulp.task('js:hanlder', sequence('copy:js', 'md5:js', 'uglify'));
+/*---------处理js--------*/
+gulp.task('js:hanlder', sequence('copy:js', 'md5:js', 'es6Toes5', 'uglify'));
 gulp.task('img:hanlder', sequence(
     'copy:img',
-    // 'webp:img',
+    // 'webp:img',有浏览器兼容性文件
     'md5:img',
     'imagemin'
 ));
@@ -83,10 +83,7 @@ gulp.task('css:hanlder', sequence('md5:css',
     'revreplace_css_img',
     // 'base64:css'
 ));
-
 gulp.task('html:hanlder', sequence('revreplace_html_js', 'revreplace_html_css', 'revreplace_html_img'));
-
-/*---------处理js--------*/
 
 // 将js文件拷贝到release目录
 gulp.task('copy:js', () => {
@@ -102,8 +99,7 @@ gulp.task('copy:js', () => {
 gulp.task('md5:js', () => {
     return gulp.src([
         './tmp/assets/js/**/*.js',
-        '!./tmp/assets/js/**/*.es6.js',
-        '!./tmp/assets/js/{libs,plugs,global}/**/*.js',
+        '!./tmp/assets/js/{libs,plugs,modules,global}/**/*.js',
         '!./tmp/**/config.js',
     ], {
         base: "./tmp"
@@ -114,10 +110,32 @@ gulp.task('md5:js', () => {
         .pipe(gulp.dest('./release/assets/js'));
 });
 
+//es6转ea5
+gulp.task('es6Toes5', () => {
+    return gulp.src(['./release/assets/js/**/*.js', './release/assets/js/global/**/*.js', '!./release/assets/js/{libs,plugs}/**/*.js', '!./release/**/config.js'], {
+        base: './release'
+    })
+        .pipe(babel({
+            presets: [
+                [
+                    '@babel/env', {
+                        "targets": {
+                            "browsers": ["ie >= 8", "chrome >= 62"],
+                        },
+                        // "modules": 'amd'//将当前模块转换成其它模块类型,非模块文件默认转换成commonjs模块类型
+                    }
+                ]
+            ],
+            // plugins: ["@babel/plugin-transform-strict-mode"],
+        }).on('error', err => {
+            console.log(err);
+        }))
+        .pipe(gulp.dest('./release'))
+});
 
 //压缩js
 gulp.task('uglify', () => {
-    return gulp.src(['./release/assets/js/**/*.js','!./release/**/*.es6.js', '!./release/assets/js/{libs,plugs,global/vendor}/**/*.js', '!./release/**/config.js'])
+    return gulp.src(['./release/assets/js/**/*.js', '!./release/assets/js/{libs,plugs,modules}/**/*.js', '!./release/**/config.js'])
         .pipe(uglify())
         .on('error', function (err) {
             console.log('压缩失败', err);
@@ -209,8 +227,6 @@ gulp.task('base64:css', () => {
         .pipe(gulp.dest('./release/assets/css'));
 });
 
-
-
 /*---------处理html--------*/
 
 //替换页面中的js为对应的hash路径
@@ -247,21 +263,39 @@ gulp.task('revreplace_html_img', () => {
 
 /*-------------------------------------->开发时执行<-----------------------------------------*/
 gulp.task('default', ['server']);
+gulp.task('mock', ['server']);
 
 // 启动代理服务
+let mock = require('./mock.js');
 gulp.task('server', ['sass', 'lint'], () => {
+    const serverObj = {
+        baseDir: ["../Views", "../"],
+    }
+    if (process.argv.indexOf('mock') != -1) {
+        Object.assign(serverObj, {
+            middleware: mock.data()
+        })
+    }
     browserSync.init({
         port: 3010,
         // 1，作为静态资源服务器使用
         watch: true,
-        server: ["../Views", "../"],
+        server: serverObj,
         //2，作为代理服务器使用
-        // proxy: 'http://localhost:8888'
+        // proxy: {
+        //     target:'http://localhost:3010',
+        //     middleware: function (req, res, next) {
+        //         console.log(req.url);
+        //         next();
+        //     }
+        // }
     });
+
     gulp.watch('../assets/sass/**/*.scss', ['sass']);
-    gulp.watch(['../assets/js/**/*.js', '!../assets/js/{libs,plugs,vendor}/**/*.js'], ['lint']);
-    gulp.watch('../Views/**/*.[cshtml,html]').on('change', reload);
+    gulp.watch(['../assets/js/global/**/*.js', '../assets/js/modules/**/*.js'], ['lint']);
+    gulp.watch(['../Views/**/*.[cshtml,html]', './mock.js']).on('change', reload);
 });
+
 
 //scss文件转成css文件
 gulp.task('sass', () => {
@@ -287,8 +321,8 @@ gulp.task('sass', () => {
 });
 
 //js校验
-gulp.task('lint', ['es6ToAmd'], () => {
-    return gulp.src(['../assets/js/**/*.js', '!../assets/js/{libs,plugs,vendor}/**/*.js'])
+gulp.task('lint', () => {
+    return gulp.src(['../assets/js/global/**/*.js', '../assets/js/modules/**/*.js'])
         .pipe(reload({
             stream: true
         }))
@@ -298,26 +332,3 @@ gulp.task('lint', ['es6ToAmd'], () => {
         .pipe(jshint.reporter('default'));
 });
 
-//es6转amd
-gulp.task('es6ToAmd', () => {
-    return gulp.src(['../assets/js/**/*.es6.js', '!../assets/js/{libs,plugs,global,vendor}/**/*.js', '!../assets/js/config.js'])
-        .pipe(babel({
-            presets: [
-                [
-                    '@babel/env', {
-                        "targets": {
-                            "browsers": ["ie >= 8", "chrome >= 62"],
-                        },
-                        "modules": 'amd'//将当前模块转换成其它模块类型,非模块文件默认转换成commonjs模块类型
-                    }
-                ]
-            ],
-            // plugins: ["@babel/plugin-transform-strict-mode"],
-        }).on('error', err => {
-            console.log(err);
-        }))
-        .pipe(rename((path) => {
-            path.basename = path.basename.replace(/.es6/, '');
-        }))
-        .pipe(gulp.dest('../assets/js/'))
-});

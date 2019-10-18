@@ -10,397 +10,260 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="header">
-            <div class="header-top">
-                <div class="header-top-inner">
-                    <ul class="nav-bar">
+    <div class="header">
+        <div class="header-top">
+            <div class="header-top-inner">
+                <ul class="nav-bar">
+                    <li><a href="http://tk.v5cg.com/" target="_blank">CG工具</a></li>
+                    <li><a href="http://render.v5cg.com/" target="_blank">云渲染</a></li>
+                    <li><a href="https://www.cggogo.com" target="_blank">项目外包</a></li>
+                    <li><a href="https://rs.v5cg.com/" target="_blank">素材中心</a></li>
+                    <li><a href="https://im.v5cg.com/discover" target="_blank">作品展示</a></li>
+                    <li><a href="http://www.v5cg.com/" target="_blank">文创资讯</a></li>
+                    <li><a href="http://tk.v5cg.com/toolkit" target="_blank">客户端<i class="client-tip-icon"></i></a>
+                    </li>
+                    <li class="header-more-nav">
+                        <div class="header-more-text">
+                            更多<span class="arrow-down"></span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a href="javascript:void(0)" target="_blank">会员服务</a></li>
+                                        <li><a href="javascript:void(0)" target="_blank">会员中心</a></li> -->
+                            <li><a href="http://tk.v5cg.com/help.html" target="_blank">帮助中心</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav-login">
+                    <li><a href="//tk.v5cg.com/Login/index.html" class="user-login">登录</a></li>
+                    <li><a href="https://passport.skycreative.cn/register/index?fromSite=tk">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav-main">
+                <ul class="nav-bar" id="nav-bar">
+                    <li class="nav-active"><a href="/">首页</a></li>
+                    <li><a href="/hot-people.html">热点人物</a></li>
+                    <li><a href="/hot-works.html">热门作品</a></li>
+                    <li><a href="/hot-topic.html">热门话题</a></li>
+                    <li><a href="/personal-page.html">个人主页</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="layout">
+        <div class="container">
+            <div class="main-l">
+                <div class="main-l-tp">
+                    <a class="main-l-row" href="#"><span class="main-l-txt">首页</span><span
+                            class="main-l-ico icon-home"></span></a>
+                </div>
+                <div class="main-l-mm">
+                    <a class="main-l-row" href="#"><span class="main-l-txt">我的收藏</span><span
+                            class="main-l-ico icon-heart"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">我的赞</span><span
+                            class="main-l-ico icon-praise"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">我的关注</span><span
+                            class="main-l-ico icon-user"></span></a>
+                </div>
+                <div class="main-l-bt">
+                    <a class="main-l-row" href="#"><span class="main-l-txt">热点人物</span><span
+                            class="main-l-ico"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">热门作品</span><span
+                            class="main-l-ico"></span></a>
+                    <a class="main-l-row" href="#"><span class="main-l-txt">热门话题</span><span
+                            class="main-l-ico"></span></a>
+                </div>
+            </div>
+            <div class="main-c">
+                <div class="publish-area">
+                    <textarea class="publish-inpt" placeholder="参与话题#" maxlength="200"></textarea>
+                    <div class="publish-operate">
+                        <div class="publish-iconlist">
+                            <span class="publish-icon publish-icon-expression">表情</span>
+                            <span class="publish-icon publish-icon-pic">图片</span>
+                            <span class="publish-icon publish-icon-video">视频</span>
+                            <span class="publish-icon publish-icon-topic">话题</span>
+                            <span class="publish-icon publish-icon-quest">提问</span>
+                            <span class="publish-icon publish-icon-course">教程</span>
+                        </div>
+                        <div class="publish-send">
+                            <div class="btn-yellow publish-btn">发布</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="published">
+                    <div class="c-nav">
+                        <div class="nav-items">
+                            <span class="nav-item nav-active">全部</span>
+                            <span class="nav-item">作品</span>
+                            <span class="nav-item">图片</span>
+                            <span class="nav-item">视频</span>
+                            <span class="nav-item">话题</span>
+                            <span class="nav-item">活动</span>
+                            <span class="nav-item">提问</span>
+                            <span class="nav-item">教程</span>
+                            <span class="nav-item">我关注的</span>
+                        </div>
+                        <div class="c-tip">
+                            <span class="c-btn">有新消息，点击刷新</span>
+                        </div>
+                    </div>
+                    <div class="topic-list-wrap" id="topic-list-wrap">
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="main-r">
+                <div class="user-card">
+                    <div class="user-card-tp">
+                        <div class="user-card-head">
+                            <img src="https://images.skycreative.cn/avatar/fastcg.png" />
+                        </div>
+                    </div>
+                    <div class="user-card-intro">
+                        <div class="user-card-name">shz</div>
+                        <div class="user-card-occupation">开发者</div>
+                        <div class="user-card-statistics">
+                            <div class="user-card-statistics-dl">
+                                <div class="user-card-statistics-dt">100</div>
+                                <div class="user-card-statistics-dd">关注</div>
+                            </div>
+                            <div class="user-card-statistics-dl">
+                                <div class="user-card-statistics-dt">2000</div>
+                                <div class="user-card-statistics-dd">粉丝</div>
+                            </div>
+                            <div class="user-card-statistics-dl">
+                                <div class="user-card-statistics-dt">50</div>
+                                <div class="user-card-statistics-dd">动态</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hot-topic">
+                    <div class="hot-topic-head">
+                        热门话题<div class="hot-topic-refresh"><i class="icon-refresh refresh-ico"></i>换一换</div>
+                    </div>
+                    <div class="hot-topic-body">
+                        <ul>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                            <li><a href="#">#李宇春暗黑哥特风#</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-tp">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <img src="/assets/images/header/site-logo.png">
+                </div>
+                <div class="footer-col">
+                    <div class="footer-nav-title">
+                        <h3>核心业务</h3>
+                    </div>
+                    <ul>
                         <li><a href="http://tk.v5cg.com/" target="_blank">CG工具</a></li>
                         <li><a href="http://render.v5cg.com/" target="_blank">云渲染</a></li>
-                        <li><a href="https://www.cggogo.com" target="_blank">项目外包</a></li>
-                        <li><a href="https://rs.v5cg.com/" target="_blank">素材中心</a></li>
-                        <li><a href="https://im.v5cg.com/discover" target="_blank">作品展示</a></li>
+                        <li><a href="https://www.cggogo.com/" target="_blank">项目外包</a></li>
+                        <li><a href="https://rs.v5cg.com/" target="_blank">CG素材</a></li>
                         <li><a href="http://www.v5cg.com/" target="_blank">文创资讯</a></li>
-                        <li><a href="http://tk.v5cg.com/toolkit" target="_blank">客户端<i class="client-tip-icon"></i></a>
-                        </li>
-                        <li class="header-more-nav">
-                            <div class="header-more-text">
-                                更多<span class="arrow-down"></span>
-                            </div>
-                            <ul class="dropdown-menu">
-                                <!-- <li><a href="javascript:void(0)" target="_blank">会员服务</a></li>
-                                        <li><a href="javascript:void(0)" target="_blank">会员中心</a></li> -->
-                                <li><a href="http://tk.v5cg.com/help.html" target="_blank">帮助中心</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav-login">
-                        <li><a href="//tk.v5cg.com/Login/index.html" class="user-login">登录</a></li>
-                        <li><a href="https://passport.skycreative.cn/register/index?fromSite=tk">注册</a>
-                        </li>
+                        <li><a href="https://im.v5cg.com/discover" target="_blank">CG作品</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="nav">
-                <div class="nav-main">
-                    <ul class="nav-bar" id="nav-bar">
-                        <li class="nav-active"><a href="/">首页</a></li>
-                        <li><a href="/hot-people.html">热点人物</a></li>
-                        <li><a href="/hot-works.html">热门作品</a></li>
-                        <li><a href="/hot-topic.html">热门话题</a></li>
-                        <li><a href="/personal-page.html">个人主页</a></li>
+                <div class="footer-col">
+                    <div class="footer-nav-title">
+                        <h3>帮助中心</h3>
+                    </div>
+                    <ul>
+                        <li><a href="/help.html" target="_blank">常见问题</a></li>
+                        <li><a href="/developmentGuide.html">开发者指南</a></li>
+                        <li><a href="https://www.cggogo.com/Help" target="_blank">项目外包问题</a></li>
+                        <li><a href="http://www.skycreative.cn/home/about#connect" target="_blank">联系方式</a></li>
                     </ul>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-nav-title">
+                        <h3>关于我们</h3>
+                    </div>
+                    <ul>
+                        <li><a href="http://www.skycreative.cn/home/about" target="_blank">公司详情</a></li>
+                        <li><a href="http://www.skycreative.cn/home/Timeline" target="_blank">企业事件</a></li>
+                        <li><a href="javascript:void(0)" target="_blank">条框声明</a></li>
+                    </ul>
+                </div>
 
+                <div class="footer-col footer-qrcode">
+                    <img src="/assets/images/header/zone.jpg">
+                    <p>微信公众平台<br>扫码关注我们</p>
+                </div>
+                <div class="footer-col footer-contact">
+                    <div class="footer-row">
+                        <img src="/assets/images/header/contact-phone.png">
+                        <dl>
+                            <dt>服务电话</dt>
+                            <dd>0755-2348-4041</dd>
+                        </dl>
+                    </div>
+                    <div class="footer-row">
+                        <img src="/assets/images/header/contact-qq.png">
+                        <dl>
+                            <dt>客服QQ</dt>
+                            <dd>工具：<div class="customer-service-list">1217747119<br>1661904870</div>
+                            </dd>
+                            <dd>外包：<div class="customer-service-list">164953149</div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-inner footer-link">
+                <div>
+                    <p><a href="https://www.cggogo.com/projects" target="_blank">设计师兼职网</a></p>
+                    <p><a href="http://www.bigcg.me/" target="_blank">BIGCG</a></p>
+                    <p><a href="http://tk.v5cg.com/tools/793.html" target="_blank">睫毛笔刷</a></p>
+                    <p><a href="https://www.qingyun6.com/" target="_blank">青云模型库</a></p>
+                    <p><a href="http://c4dsky.com/" target="_blank">书生CG资源网</a></p>
+                    <p><a href="http://www.cgylw.com/" target="_blank">CG游麟网</a></p>
+                    <p><a href="http://www.aboutcg.com/" target="_blank">ABOUTCG</a></p>
+                    <p><a href="http://www.xy-share.com" target="_blank">3D模型</a></p>
+                    <p><a href="http://www.cgboo.com/" target="_blank">CG模型</a></p>
+                    <p><a href="http://www.element3ds.com/" target="_blank">微元素</a></p>
+                    <p><a href="http://gjdhjc.com/" target="_blank">国际动画教程网</a></p>
+                    <p><a href="http://hkcgart.com/" target="_blank">花魁小站</a></p>
+                    <p><a href="http://www.zf3d.com/" target="_blank">朱峰社区</a></p>
+                    <p><a href="http://www.51render.com/" target="_blank">51render</a></p>
+                    <p><a href="http://www.kalaoo.com/" target="_blank">游戏美术共享平台</a></p>
+                    <p><a href="http://expo.jc001.cn/" target="_blank">建材展会</a></p>
+                    <p><a href="http://www.cgwon.com/" target="_blank">cg培训</a></p>
+                    <p><a href="http://www.simpneed.com/" target="_blank">3d打印定制</a></p>
+                    <p><a href="http://www.cgahz.com/" target="_blank">AE模板</a></p>
+                    <p><a href="http://hanshilin.com/" target="_blank">韩世麟图像日志</a></p>
+                    <p><a href="http://www.sketchupvr.com/" target="_blank">ARC设计中文网</a></p>
+                    <p><a href="http://www.c4dcn.com/" target="_blank">菜鸟C4D</a></p>
+                    <p><a href="http://3d.jzsc.net/" target="_blank">典尚三维模型</a></p>
+                    <p><a href="http://www.fangdede.com/" target="_blank">方的的室内设计网</a></p>
+                    <p><a href="http://www.huiyisheji.com/" target="_blank">免费素材网</a></p>
+                    <p><a href="http://iugame.me/" target="_blank">爱游美术资源网</a></p>
+                    <p><a href="http://zshid.com/" target="_blank">建筑视界</a></p>
+                    <p><a href="http://www.heezii.com/" target="_blank">西安包装设计</a></p>
+                    <p><a href="https://www.hsziz.com/" target="_blank">花生模型网</a></p>
                 </div>
             </div>
         </div>
-
-        <div class="layout">
-            <div class="container">
-                <div class="main-l">
-                    <div class="main-l-tp">
-                        <a class="main-l-row" href="#"><span class="main-l-txt">首页</span><span
-                                class="main-l-ico icon-home"></span></a>
-                    </div>
-                    <div class="main-l-mm">
-                        <a class="main-l-row" href="#"><span class="main-l-txt">我的收藏</span><span
-                                class="main-l-ico icon-heart"></span></a>
-                        <a class="main-l-row" href="#"><span class="main-l-txt">我的赞</span><span
-                                class="main-l-ico icon-praise"></span></a>
-                        <a class="main-l-row" href="#"><span class="main-l-txt">我的关注</span><span
-                                class="main-l-ico icon-user"></span></a>
-                    </div>
-                    <div class="main-l-bt">
-                        <a class="main-l-row" href="#"><span class="main-l-txt">热点人物</span><span
-                                class="main-l-ico"></span></a>
-                        <a class="main-l-row" href="#"><span class="main-l-txt">热门作品</span><span
-                                class="main-l-ico"></span></a>
-                        <a class="main-l-row" href="#"><span class="main-l-txt">热门话题</span><span
-                                class="main-l-ico"></span></a>
-                    </div>
-                </div>
-                <div class="main-c">
-                    <div class="main-publish-area">
-                        <textarea class="main-publish-inpt" placeholder="参与话题#" maxlength="200"></textarea>
-                        <div class="main-publish-operate">
-                            <div class="main-publish-iconlist">
-                                <span class="main-publish-icon main-publish-icon-expression">表情</span>
-                                <span class="main-publish-icon main-publish-icon-pic">图片</span>
-                                <span class="main-publish-icon main-publish-icon-video">视频</span>
-                                <span class="main-publish-icon main-publish-icon-topic">话题</span>
-                                <span class="main-publish-icon main-publish-icon-quest">提问</span>
-                                <span class="main-publish-icon main-publish-icon-course">教程</span>
-                            </div>
-                            <div class="main-publish-send">
-                                <div class="btn-yellow main-publish-btn">发布</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-published">
-                        <div class="main-c-nav">
-                            <div class="main-nav-items">
-                                <span class="main-nav-item main-nav-active">全部</span>
-                                <span class="main-nav-item">作品</span>
-                                <span class="main-nav-item">图片</span>
-                                <span class="main-nav-item">视频</span>
-                                <span class="main-nav-item">话题</span>
-                                <span class="main-nav-item">活动</span>
-                                <span class="main-nav-item">提问</span>
-                                <span class="main-nav-item">教程</span>
-                                <span class="main-nav-item">我关注的</span>
-                            </div>
-                            <div class="main-c-tip">
-                                <span class="main-c-btn">有新消息，点击刷新</span>
-                            </div>
-                        </div>
-                        <div class="main-list-wrap">
-                            <div class="main-list">
-                                <div class="main-msg-title"><em></em> 提问</div>
-                                <div class="main-msg-body">
-                                    <div class="main-msg-head">
-                                        <img src="https://images.skycreative.cn/avatar/trykle.png" />
-                                    </div>
-                                    <div class="main-msg-rt">
-                                        <div class="main-msg-simple">
-                                            <div class="main-c-username">张三</div>
-                                            <div class="main-c-datetime">9月21号 15:30</div>
-                                        </div>
-                                        <div class="main-msg-occupation">建筑设计，模型</div>
-                                        <div class="main-msg-cc">
-                                            黄浦涛声和弄堂笑语还在耳边回响，漫天霓虹早已拉开不夜城的序幕，#我从卫星看家乡#跟大家一起分享这座梦幻之城、绚丽之城、开放之城！！@新华视点#60万米高空看中国#
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main-msg-footer">
-                                    <span class="main-msg-item main-msg-collection"><i
-                                            class="main-msg-ico icon-star-o"></i>收藏</span>
-                                    <span class="main-msg-item main-msg-forward"><i
-                                            class="main-msg-ico icon-external-link"></i>转发</span>
-                                    <span class="main-msg-item main-msg-comment"><i
-                                            class="main-msg-ico icon-comment"></i>20</span>
-                                    <span class="main-msg-item main-msg-thumb"><i
-                                            class="main-msg-ico icon-praise"></i>13</span>
-                                </div>
-                            </div>
-                            <div class="main-comment-wrap">
-                                <div class="main-comment-opreate">
-                                    <div class="main-comment-head">
-                                        <img src="https://images.skycreative.cn/avatar/fastcg.png" />
-                                    </div>
-                                    <div class="main-comment-rt">
-                                        <div class="main-comment-ipt-area">
-                                            <input class="main-comment-ipt" type="text">
-                                        </div>
-                                        <div class="main-comment-btm">
-                                            <div class="main-comment-options">
-                                                <span class="main-comment-ico icon-comment-expression"></span>
-                                                <span class="main-comment-ico icon-comment-file"></span>
-                                            </div>
-                                            <div class="btn-yellow main-comment-send">评论</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main-comment-list">
-                                    <div class="main-comment-item">
-                                        <div class="main-comment-self">
-                                            <div class="main-comment-head">
-                                                <img src="https://images.skycreative.cn/avatar/fastcg.png" />
-                                            </div>
-                                            <div class="main-comment-detail">
-                                                <div class="main-comment-intro">
-                                                    <span class="main-comment-username">波星如雨：</span>
-                                                    <span class="main-comment-txt">我们的帅歌都是上高大上的综艺节目，传播正能量</span>
-                                                </div>
-                                                <div class="main-comment-datetime">
-                                                    10月8日 15:30
-                                                    <div class="main-comment-opt">
-                                                        <div class="main-comment-opt-reply">回复</div>
-                                                        <div class="main-comment-opt-praise"><i
-                                                                class="icon-praise"></i>13
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="main-comment-reply-area">
-                                            <div class="main-comment-detail">
-                                                <div class="main-c-comment-intro">
-                                                    <span class="main-c-comment-username">波星如雨</span>回复
-                                                    <span class="main-c-comment-username">shz：</span>
-                                                    <span class="main-c-comment-txt">我们的帅歌都是上高大上的综艺节目，传播正能量</span>
-                                                </div>
-                                                <div class="main-c-comment-datetime">
-                                                    10月8日 15:30
-                                                    <div class="main-c-comment-opt">
-                                                        <div class="main-c-comment-opt-reply">回复</div>
-                                                        <div class="main-c-comment-opt-praise"><i
-                                                                class="icon-praise"></i>13
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="main-comment-detail">
-                                                <div class="main-comment-intro">
-                                                    <span class="main-comment-username">shz</span>回复
-                                                    <span class="main-comment-username">波星如雨：</span>
-                                                    <span class="main-comment-txt">我们的帅歌都是上高大上的综艺节目，传播正能量</span>
-                                                </div>
-                                                <div class="main-comment-datetime">
-                                                    10月8日 15:30
-                                                    <div class="main-comment-opt">
-                                                        <div class="main-comment-opt-reply">回复</div>
-                                                        <div class="main-comment-opt-praise"><i
-                                                                class="icon-praise"></i>13
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main-list">
-                                <div class="main-msg-title"><em></em> 提问</div>
-                                <div class="main-msg-body">
-                                    <div class="main-msg-head">
-                                        <img src="https://images.skycreative.cn/avatar/trykle.png" />
-                                    </div>
-                                    <div class="main-msg-rt">
-                                        <div class="main-msg-simple">
-                                            <div class="main-c-username">张三</div>
-                                            <div class="main-c-datetime">9月21号 15:30</div>
-                                        </div>
-                                        <div class="main-msg-occupation">建筑设计，模型</div>
-                                        <div class="main-msg-cc">
-                                            黄浦涛声和弄堂笑语还在耳边回响，漫天霓虹早已拉开不夜城的序幕，#我从卫星看家乡#跟大家一起分享这座梦幻之城、绚丽之城、开放之城！！@新华视点#60万米高空看中国#
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main-msg-footer">
-                                    <span class="main-msg-item main-msg-collection"><i
-                                            class="main-msg-ico icon-star-o"></i>收藏</span>
-                                    <span class="main-msg-item main-msg-forward"><i
-                                            class="main-msg-ico icon-external-link"></i>转发</span>
-                                    <span class="main-msg-item main-msg-comment"><i
-                                            class="main-msg-ico icon-comment"></i>20</span>
-                                    <span class="main-msg-item main-msg-thumb"><i
-                                            class="main-msg-ico icon-praise"></i>13</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="main-r">
-                    <div class="user-card">
-                        <div class="user-card-tp">
-                            <div class="user-card-head">
-                                <img src="https://images.skycreative.cn/avatar/fastcg.png" />
-                            </div>
-                        </div>
-                        <div class="user-card-intro">
-                            <div class="user-card-name">shz</div>
-                            <div class="user-card-occupation">开发者</div>
-                            <div class="user-card-statistics">
-                                <div class="user-card-statistics-dl">
-                                    <div class="user-card-statistics-dt">100</div>
-                                    <div class="user-card-statistics-dd">关注</div>
-                                </div>
-                                <div class="user-card-statistics-dl">
-                                    <div class="user-card-statistics-dt">2000</div>
-                                    <div class="user-card-statistics-dd">粉丝</div>
-                                </div>
-                                <div class="user-card-statistics-dl">
-                                    <div class="user-card-statistics-dt">50</div>
-                                    <div class="user-card-statistics-dd">动态</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hot-topic">
-                        <div class="hot-topic-head">
-                            热门话题<div class="hot-topic-refresh"><i class="icon-refresh refresh-ico"></i>换一换</div>
-                        </div>
-                        <div class="hot-topic-body">
-                            <ul>
-                                <li><a href="#">#李宇春暗黑哥特风#</a></li>
-                                <li><a href="#">#李宇春暗黑哥特风#</a></li>
-                                <li><a href="#">#李宇春暗黑哥特风#</a></li>
-                                <li><a href="#">#李宇春暗黑哥特风#</a></li>
-                                <li><a href="#">#李宇春暗黑哥特风#</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="footer-tp">
-                <div class="footer-inner">
-                    <div class="footer-col">
-                        <img src="/assets/images/header/site-logo.png">
-                    </div>
-                    <div class="footer-col">
-                        <div class="footer-nav-title">
-                            <h3>核心业务</h3>
-                        </div>
-                        <ul>
-                            <li><a href="http://tk.v5cg.com/" target="_blank">CG工具</a></li>
-                            <li><a href="http://render.v5cg.com/" target="_blank">云渲染</a></li>
-                            <li><a href="https://www.cggogo.com/" target="_blank">项目外包</a></li>
-                            <li><a href="https://rs.v5cg.com/" target="_blank">CG素材</a></li>
-                            <li><a href="http://www.v5cg.com/" target="_blank">文创资讯</a></li>
-                            <li><a href="https://im.v5cg.com/discover" target="_blank">CG作品</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <div class="footer-nav-title">
-                            <h3>帮助中心</h3>
-                        </div>
-                        <ul>
-                            <li><a href="/help.html" target="_blank">常见问题</a></li>
-                            <li><a href="/developmentGuide.html">开发者指南</a></li>
-                            <li><a href="https://www.cggogo.com/Help" target="_blank">项目外包问题</a></li>
-                            <li><a href="http://www.skycreative.cn/home/about#connect" target="_blank">联系方式</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <div class="footer-nav-title">
-                            <h3>关于我们</h3>
-                        </div>
-                        <ul>
-                            <li><a href="http://www.skycreative.cn/home/about" target="_blank">公司详情</a></li>
-                            <li><a href="http://www.skycreative.cn/home/Timeline" target="_blank">企业事件</a></li>
-                            <li><a href="javascript:void(0)" target="_blank">条框声明</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col footer-qrcode">
-                        <img src="/assets/images/header/zone.jpg">
-                        <p>微信公众平台<br>扫码关注我们</p>
-                    </div>
-                    <div class="footer-col footer-contact">
-                        <div class="footer-row">
-                            <img src="/assets/images/header/contact-phone.png">
-                            <dl>
-                                <dt>服务电话</dt>
-                                <dd>0755-2348-4041</dd>
-                            </dl>
-                        </div>
-                        <div class="footer-row">
-                            <img src="/assets/images/header/contact-qq.png">
-                            <dl>
-                                <dt>客服QQ</dt>
-                                <dd>工具：<div class="customer-service-list">1217747119<br>1661904870</div>
-                                </dd>
-                                <dd>外包：<div class="customer-service-list">164953149</div>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-inner footer-link">
-                    <div>
-                        <p><a href="https://www.cggogo.com/projects" target="_blank">设计师兼职网</a></p>
-                        <p><a href="http://www.bigcg.me/" target="_blank">BIGCG</a></p>
-                        <p><a href="http://tk.v5cg.com/tools/793.html" target="_blank">睫毛笔刷</a></p>
-                        <p><a href="https://www.qingyun6.com/" target="_blank">青云模型库</a></p>
-                        <p><a href="http://c4dsky.com/" target="_blank">书生CG资源网</a></p>
-                        <p><a href="http://www.cgylw.com/" target="_blank">CG游麟网</a></p>
-                        <p><a href="http://www.aboutcg.com/" target="_blank">ABOUTCG</a></p>
-                        <p><a href="http://www.xy-share.com" target="_blank">3D模型</a></p>
-                        <p><a href="http://www.cgboo.com/" target="_blank">CG模型</a></p>
-                        <p><a href="http://www.element3ds.com/" target="_blank">微元素</a></p>
-                        <p><a href="http://gjdhjc.com/" target="_blank">国际动画教程网</a></p>
-                        <p><a href="http://hkcgart.com/" target="_blank">花魁小站</a></p>
-                        <p><a href="http://www.zf3d.com/" target="_blank">朱峰社区</a></p>
-                        <p><a href="http://www.51render.com/" target="_blank">51render</a></p>
-                        <p><a href="http://www.kalaoo.com/" target="_blank">游戏美术共享平台</a></p>
-                        <p><a href="http://expo.jc001.cn/" target="_blank">建材展会</a></p>
-                        <p><a href="http://www.cgwon.com/" target="_blank">cg培训</a></p>
-                        <p><a href="http://www.simpneed.com/" target="_blank">3d打印定制</a></p>
-                        <p><a href="http://www.cgahz.com/" target="_blank">AE模板</a></p>
-                        <p><a href="http://hanshilin.com/" target="_blank">韩世麟图像日志</a></p>
-                        <p><a href="http://www.sketchupvr.com/" target="_blank">ARC设计中文网</a></p>
-                        <p><a href="http://www.c4dcn.com/" target="_blank">菜鸟C4D</a></p>
-                        <p><a href="http://3d.jzsc.net/" target="_blank">典尚三维模型</a></p>
-                        <p><a href="http://www.fangdede.com/" target="_blank">方的的室内设计网</a></p>
-                        <p><a href="http://www.huiyisheji.com/" target="_blank">免费素材网</a></p>
-                        <p><a href="http://iugame.me/" target="_blank">爱游美术资源网</a></p>
-                        <p><a href="http://zshid.com/" target="_blank">建筑视界</a></p>
-                        <p><a href="http://www.heezii.com/" target="_blank">西安包装设计</a></p>
-                        <p><a href="https://www.hsziz.com/" target="_blank">花生模型网</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-btm">
-                <p>TK.V5CG.COM</p>
-                <p>网站备案：粤ICP备15049944-4号</p>
-            </div>
+        <div class="footer-btm">
+            <p>TK.V5CG.COM</p>
+            <p>网站备案：粤ICP备15049944-4号</p>
         </div>
     </div>
     <script>
@@ -459,11 +322,8 @@
         })()
     </script>
 
-    <script type="text/javascript" src="/assets/js/libs/require-2.1.15.js"></script>
-    <script type="text/javascript" src="/assets/js/config.js"></script>
-    <script>
-        require(['Index/index']);
-    </script>
+    <script type="text/javascript" data-main="/assets/js/Index/index.js"
+        src="/assets/js/libs/require-2.1.15.js"></script>
 </body>
 
 </html>

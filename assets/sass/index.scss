@@ -2,12 +2,12 @@
 @import "base";
 
 .main-c {
-    .main-publish-area {
+    .publish-area {
         margin-bottom: 10px;
         padding: 38px 20px 12px;
         background-color: #fff;
 
-        .main-publish-inpt {
+        .publish-inpt {
             width: 100%;
             height: 100px;
             padding: 8px;
@@ -20,84 +20,92 @@
             }
         }
 
-        .main-publish-operate {
+        .publish-operate {
             display: flex;
 
-            .main-publish-iconlist {
+            .publish-iconlist {
                 display: flex;
                 flex: 1;
                 align-items: center;
 
-                .main-publish-icon {
+                .publish-icon {
                     flex: 1;
                     height: 20px;
                     padding-left: 28px;
                     background: url(#{$imgpath}/img.png) no-repeat;
                     cursor: pointer;
-                    &:hover{
+
+                    &:hover {
                         color: #fa5c7c;
                     }
                 }
-                .main-publish-icon-expression{
+
+                .publish-icon-expression {
                     background-position: 0 -20px;
                 }
-                .main-publish-icon-pic{
+
+                .publish-icon-pic {
                     background-position: 0 -60px;
                 }
-                .main-publish-icon-video{
+
+                .publish-icon-video {
                     background-position: 0 -120px;
                 }
-                .main-publish-icon-topic{
+
+                .publish-icon-topic {
                     background-position: 0 -80px;
                 }
-                .main-publish-icon-quest{
+
+                .publish-icon-quest {
                     background-position: 0 0px;
                 }
-                .main-publish-icon-course{
+
+                .publish-icon-course {
                     background-position: 0 -100px;
                 }
-
             }
 
-            .main-publish-send {
+            .publish-send {
                 display: flex;
 
-                .main-publish-btn {
+                .publish-btn {
                     padding: 11px 36px;
                     font-weight: bold;
-                    &:hover{
-                        background-color:darken($base-color,1%);  
+
+                    &:hover {
+                        background-color: darken($base-color, 1%);
                     }
                 }
             }
         }
     }
 
-    .main-published {
-        .main-c-nav {
+    .published {
+        .c-nav {
             margin-bottom: 10px;
 
-            .main-nav-items {
+            .nav-items {
                 display: flex;
                 padding: 12px 20px;
                 background-color: #fff;
             }
 
-            .main-nav-item {
+            .nav-item {
                 flex: 1;
                 font-size: 12px;
                 cursor: pointer;
             }
-            .main-nav-item.main-nav-active{
+
+            .nav-item.nav-active {
                 font-weight: bold;
             }
 
-            .main-c-tip {
+            .c-tip {
                 text-align: center;
                 padding: 10px 0px;
                 background-color: #f9b8b8;
 
-                .main-c-btn {
+                .c-btn {
                     font-size: 12px;
                     color: #fa5c7c;
                     cursor: pointer;
@@ -105,12 +113,12 @@
             }
         }
 
-        .main-list-wrap {
-            .main-list {
+        .topic-list-wrap {
+            .topic-list {
                 margin-bottom: 10px;
                 background-color: #fff;
 
-                .main-msg-title {
+                .msg-title {
                     display: flex;
                     align-items: center;
                     padding: 12px 20px;
@@ -118,7 +126,7 @@
 
                     em {
                         display: inline-block;
-                        width:13px;
+                        width: 13px;
                         height: 13px;
                         margin-right: 8px;
                         background: url(#{$imgpath}/img.png) no-repeat;
@@ -126,10 +134,10 @@
                     }
                 }
 
-                .main-msg-body {
+                .msg-body {
                     padding: 10px 20px;
 
-                    .main-msg-head {
+                    .msg-head {
                         float: left;
                         width: 60px;
                         height: 60px;
@@ -142,73 +150,79 @@
                         }
                     }
 
-                    .main-msg-rt {
+                    .msg-rt {
                         overflow: hidden;
 
-                        .main-msg-simple {
+                        .msg-simple {
                             display: flex;
                             align-items: center;
                             margin-bottom: 10px;
                             line-height: 1;
-                            .main-c-username {
+
+                            .c-username {
                                 margin-right: 10px;
                                 font-size: 16px;
                                 font-weight: bold;
                             }
 
-                            .main-c-datetime {
+                            .c-datetime {
                                 font-size: 12px;
                                 color: #aaa;
                             }
                         }
 
-                        .main-msg-occupation {
+                        .msg-occupation {
                             line-height: 1;
                             margin-bottom: 15px;
                             font-size: 12px;
                             color: #788cff;
                         }
 
-                        .main-msg-cc {
+                        .msg-cc {
                             line-height: 24px;
                         }
                     }
                 }
-                .main-msg-footer{
+
+                .msg-footer {
                     position: relative;
                     display: flex;
                     height: 38px;
-                    
-                   border-top: 1px solid #ddd;
-                    .main-msg-item{
+                    border-top: 1px solid #ddd;
+
+                    .msg-item {
                         display: flex;
                         flex: 1;
                         height: 100%;
                         align-items: center;
                         justify-content: center;
                         border-right: 1px solid #ddd;
-                        color:#b3b3b3;
+                        color: #b3b3b3;
                         cursor: pointer;
-                        &:hover{
-                            color:$color;
+
+                        &:hover {
+                            color: $color;
                         }
-                        &:last-child{
+
+                        &:last-child {
                             border-right: none;
                         }
-                        .main-msg-ico{
+
+                        .msg-ico {
                             margin-right: 5px;
                         }
                     }
-                   
                 }
             }
-            .main-comment-wrap{
+
+            .comment-wrap {
                 position: relative;
-                padding:10px 20px 0;
+                padding: 10px 20px 0;
                 margin-bottom: 10px;
                 margin-top: -10px;
                 background-color: #f2f2f2;
-                &:before{
+
+                &:before {
                     content: '';
                     position: absolute;
                     top: -7px;
@@ -217,116 +231,140 @@
                     border-right: 10px solid transparent;
                     border-bottom: 8px solid #eee;
                 }
-                .main-comment-head{
-                    width:30px;
+
+                .comment-head {
+                    width: 30px;
                     height: 30px;
                     border-radius: 50%;
                     overflow: hidden;
-                    img{
+
+                    img {
                         display: block;
-                        width:100%;
+                        width: 100%;
                     }
                 }
-                .main-comment-opreate{
+
+                .comment-opreate {
                     display: flex;
                     border-bottom: 1px solid #ddd;
                     padding-bottom: 10px;
-                    
-                    .main-comment-rt{
+
+                    .comment-rt {
                         flex: 1;
                         margin-left: 10px;
-                        .main-comment-ipt-area{
-                            margin-bottom: 7px;
-                            .main-comment-ipt{
-                                width:100%;
-                                height: 30px;
-                                padding:0 5px;
-                                outline: none;
-                                &:focus{
-                                    border:1px solid red;
 
+                        .comment-ipt-area {
+                            margin-bottom: 7px;
+
+                            .comment-ipt {
+                                width: 100%;
+                                height: 30px;
+                                padding: 0 5px;
+                                outline: none;
+
+                                &:focus {
+                                    border: 1px solid red;
                                 }
                             }
                         }
-                        .main-comment-btm{
+
+                        .comment-btm {
                             display: flex;
                             align-items: center;
-                            .main-comment-options{
+
+                            .comment-options {
                                 height: 20px;
-                                .main-comment-ico{
+
+                                .comment-ico {
                                     display: inline-block;
-                                    width:20px;
+                                    width: 20px;
                                     height: 20px;
                                     background: url(#{$imgpath}/img.png) no-repeat;
                                     cursor: pointer;
                                 }
-                                .icon-comment-expression{
+
+                                .icon-comment-expression {
                                     margin-right: 10px;
                                     background-position: 0 -20px;
                                 }
-                                .icon-comment-file{
+
+                                .icon-comment-file {
                                     background-position: 0 -60px;
                                 }
                             }
-                            .main-comment-send{
-                                width:84px;
+
+                            .comment-send {
+                                width: 84px;
                                 padding: 6px 12px;
                                 margin-left: auto;
-
                             }
                         }
                     }
                 }
-                .main-comment-list{
+
+                .comment-list {
                     padding-bottom: 10px;
-                    .main-comment-item{
-                        .main-comment-self{
+
+                    .comment-item {
+                        .comment-self {
                             display: flex;
-                            padding:15px 0px;
-                            .main-comment-head{
+                            padding: 15px 0px;
+
+                            .comment-head {
                                 margin-right: 10px;
                             }
                         }
-                        .main-comment-detail{
+
+                        .comment-detail {
                             flex: 1;
-.main-comment-intro{
-    margin-bottom: 3px;
-    .main-comment-username{
-        color:#fa5c7c;
-    }
-    .main-comment-txt{
-        margin-left: 4px;
-    }
-}
-.main-comment-datetime{
-    display: flex;
-    font-size: 12px;
-    color:#b3b3b3;
-    .main-comment-opt{
-        display: flex;
-        margin-left: auto;
-        .main-comment-opt-reply{
-            padding-right: 10px;
-            margin-right: 10px;
-            border-right: 1px solid #ddd;
-            cursor: pointer;
-        }
-        .main-comment-opt-praise{
-            cursor: pointer;
-            .icon-praise{
-                margin-right: 3px;
-            }
-        }
-    }
-}
+
+                            .comment-intro {
+                                margin-bottom: 3px;
+
+                                .comment-username {
+                                    color: #fa5c7c;
+                                }
+
+                                .comment-txt {
+                                    margin-left: 4px;
+                                }
+                            }
+
+                            .comment-datetime {
+                                display: flex;
+                                font-size: 12px;
+                                color: #b3b3b3;
+
+                                .comment-opt {
+                                    display: flex;
+                                    margin-left: auto;
+                                    color: #333;
+                                    .comment-opt-reply {
+                                        padding-right: 10px;
+                                        margin-right: 10px;
+                                        border-right: 1px solid #ddd;
+                                        cursor: pointer;
+                                    }
+
+                                    .comment-opt-praise {
+                                        cursor: pointer;
+
+                                        .icon-praise {
+                                            margin-right: 3px;
+                                        }
+                                    }
+                                }
+                            }
                         }
-                        .main-comment-reply-area{
-                            padding: 0 10px;
+                        .comment-reply-area {
+                            padding: 0 20px;
+                            margin-left: 40px;
                             background-color: #e9e9e9;
-                            .main-comment-detail{
-                                padding:10px 0px;
+                            .comment-detail {
+                                padding: 10px 0px;
                                 border-bottom: 1px solid #ddd;
-                                &:last-child{
+
+                                &:last-child {
                                     border-bottom: none;
                                 }
                             }
@@ -338,4 +376,33 @@
     }
 }
 
+// 正在加载
+.comment-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    background-color: #f2f2f5;
 
+    .comment-loading-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+        background-image: url(#{$imgpath}/loading.png);
+        background-image: url(#{$imgpath}/loading.gif) \9;
+        animation: rotateEffect 0.8s linear infinite;
+    }
+
+   
+}
+@keyframes rotateEffect {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

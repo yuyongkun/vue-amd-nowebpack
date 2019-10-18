@@ -1,0 +1,34 @@
+<%
+for(var i=0,len=list.length;i < len; i++){
+    var item=list[i];
+%>
+<div class="topic-list" data-topicid="<%=item.topic_id%>">
+    <div class="msg-title"><em></em> 提问</div>
+    <div class="msg-body">
+        <div class="msg-head">
+            <img src="<%=item.userportrait%>" />
+        </div>
+        <div class="msg-rt">
+            <div class="msg-simple">
+                <div class="c-username"><%=item.username%></div>
+                <div class="c-datetime"><%=item.datetime%></div>
+            </div>
+            <div class="msg-occupation"><%=item.useroccupation%></div>
+            <div class="msg-cc">
+                <%=item.comment_content%>
+            </div>
+        </div>
+    </div>
+    <div class="msg-footer">
+        <span class="msg-item msg-collection">
+            <i class="msg-ico icon-star-o"></i>收藏</span>
+        <span class="msg-item msg-forward">
+            <i class="msg-ico icon-external-link"></i>转发</span>
+        <span class="msg-item msg-comment">
+            <i class="msg-ico icon-comment"></i><%=item.comment_amount%></span>
+        <span class="msg-item msg-thumb">
+            <i class="msg-ico icon-praise"></i><%=item.thumb_amount%></span>
+    </div>
+</div>
+
+<%}%>
