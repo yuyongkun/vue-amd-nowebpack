@@ -1,6 +1,6 @@
 
 <div class="comment-wrap" id="comment-wrap">
-    <div class="comment-opreate">
+    <div class="comment-opreate" id="comment-opreate">
         <div class="comment-head">
             <img src="https://images.skycreative.cn/avatar/trykle.png" />
         </div>
@@ -17,58 +17,86 @@
             </div>
         </div>
     </div>
-    <%
-    for(var i=0,len=commentlist.length;i < len; i++){
-        var item=commentlist[i];
-        var replylist=item.replylist;
-    %>
-        <div class="comment-list" data-commentid="<%=item.comment_id%>">
-            <div class="comment-item">
-                <div class="comment-self">
-                    <div class="comment-head">
-                        <img src="<%=item.userportrait%>" />
+    <div class="comment-list">
+        <%
+        for(var i=0,len=commentlist.length;i < len; i++){
+            var item=commentlist[i];
+            var replylist=item.replylist;
+        %>
+        <div class="comment-item" data-commentid="<%=item.comment_id%>">
+            <div class="comment-self">
+                <div class="comment-head">
+                    <img src="<%=item.userportrait%>" />
+                </div>
+                <div class="comment-detail">
+                    <div class="comment-intro">
+                        <span class="comment-username"><%=item.username%>：</span>
+                        <span class="comment-txt"><%=item.comment_content%></span>
                     </div>
-                    <div class="comment-detail">
-                        <div class="comment-intro">
-                            <span class="comment-username"><%=item.username%>：</span>
-                            <span class="comment-txt"><%=item.comment_content%></span>
-                        </div>
-                        <div class="comment-datetime">
-                            <%=item.datetime%>
-                            <div class="comment-opt">
-                                <div class="comment-opt-reply">回复</div>
-                                <div class="comment-opt-praise"><i class="icon-praise"></i><%=item.thumb_amount%>
-                                </div>
+                    <div class="comment-datetime">
+                        <%=item.datetime%>
+                        <div class="comment-opt">
+                            <div class="comment-opt-reply">回复</div>
+                            <div class="comment-opt-praise"><i class="icon-praise"></i><%=item.thumb_amount%>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="comment-reply-area">
-                    <%if(replylist.length>0){%>
-                        <%for(var j=0,gfn=replylist.length;j < gfn;j++){
-                            replyItem=replylist[j];
-                        %>
-                            <div class="comment-detail" data-replyid="<%=item.reply_id%>">
-                                <div class="comment-intro">
-                                    <span class="comment-username"><%=replyItem.username_from%></span>回复
-                                    <span class="comment-username"><%=replyItem.username_to%>：</span>
-                                    <span class="comment-txt"><%=replyItem.reply_content%></span>
-                                </div>
-                                <div class="comment-datetime">
-                                    <%=item.datetime%>
-                                    <div class="comment-opt">
-                                        <div class="comment-opt-reply">回复</div>
-                                        <div class="comment-opt-praise"><i
-                                                class="icon-praise"></i><%=replyItem.thumb_amount%>
-                                        </div>
+            </div>
+            <!-- 回复 -->
+            <!-- <div class="reply-opreate">
+                <div class="comment-ipt-area">
+                    <input class="comment-ipt" type="text">
+                </div>
+                <div class="comment-btm">
+                    <div class="comment-options">
+                        <span class="comment-ico icon-comment-expression"></span>
+                        <span class="comment-ico icon-comment-file"></span>
+                    </div>
+                    <div class="btn-yellow comment-send">评论</div>
+                </div>
+            </div> -->
+            <div class="reply-list">
+                <%if(replylist.length>0){%>
+                    <%for(var j=0,gfn=replylist.length;j < gfn;j++){
+                        replyItem=replylist[j];
+                    %>
+                    <div class="reply-item" data-replyid="<%=replyItem.reply_id%>">
+                        <div class="comment-detail">
+                            <div class="comment-intro">
+                                <span class="comment-username"><%=replyItem.username_from%></span>回复
+                                <span class="comment-username"><%=replyItem.username_to%>：</span>
+                                <span class="comment-txt"><%=replyItem.reply_content%></span>
+                            </div>
+                            <div class="comment-datetime">
+                                <%=item.datetime%>
+                                <div class="comment-opt">
+                                    <div class="comment-opt-reply">回复</div>
+                                    <div class="comment-opt-praise"><i
+                                            class="icon-praise"></i><%=replyItem.thumb_amount%>
                                     </div>
                                 </div>
                             </div>
-                        <%}%>
+                        </div>
+                        <!-- 回复 -->
+                        <!-- <div class="reply-opreate">
+                            <div class="comment-ipt-area">
+                                <input class="comment-ipt" type="text">
+                            </div>
+                            <div class="comment-btm">
+                                <div class="comment-options">
+                                    <span class="comment-ico icon-comment-expression"></span>
+                                    <span class="comment-ico icon-comment-file"></span>
+                                </div>
+                                <div class="btn-yellow comment-send">评论</div>
+                            </div>
+                        </div> -->
+                    </div>
                     <%}%>
+                <%}%>
 
-                </div>
             </div>
         </div>
-    <%}%>
+        <%}%>
+    </div>
 </div>

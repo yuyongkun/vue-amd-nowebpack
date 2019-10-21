@@ -64,6 +64,10 @@ requirejs.config({
         'lightgallery': '../plugs/lightgallery/lightgallery',
         'lg-thumbnail': '../plugs/lightgallery/lg-thumbnail',
         'lg-fullscreen': '../plugs/lightgallery/lg-fullscreen',
+        // 表情
+        'emoji': '../plugs/emoji/dist/js/jquery.emoji.min',
+        'jquery.mCustomScrollbar':'../plugs/emoji/lib/script/jquery.mCustomScrollbar.min',
+        'jquery.mousewheel-3.0.6.min':'../plugs/emoji/lib/script/jquery.mousewheel-3.0.6.min'
     },
     shim: {
         'lightgallery': {
@@ -123,6 +127,16 @@ requirejs.config({
 
         'cropper': {
             deps: ['jquery', 'css!../plugs/cropper/cropper.css']
+        },
+    
+        'jquery.mousewheel-3.0.6.min':{
+            deps: ['jquery']
+        },
+        'jquery.mCustomScrollbar':{
+            deps: ['jquery','css!../plugs/emoji/lib/css/jquery.mCustomScrollbar.min.css']
+        },
+        'emoji': {
+            deps: ['jquery','jquery.mousewheel-3.0.6.min','jquery.mCustomScrollbar','css!../plugs/emoji/dist/css/jquery.emoji.css']
         },
 
     }

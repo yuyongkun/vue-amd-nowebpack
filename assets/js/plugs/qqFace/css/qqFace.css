@@ -1,0 +1,21 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.qqFace {
+    margin-top: 4px;
+    background: #fff;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 4px 20px 1px rgba(0,0,0,0.2);
+}
+
+.qqFace table td {
+    padding: 0px;
+}
+
+.qqFace table td img {
+    cursor: pointer;
+    border: 1px #fff solid;
+}
