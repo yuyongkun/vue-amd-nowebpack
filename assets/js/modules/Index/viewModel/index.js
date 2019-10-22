@@ -5,8 +5,9 @@ define([
     'util',
     'emoji',
     'text!../view/topic.htm',
-    'text!../view/comment.htm'
-], function ($, Class, Common, Util, qqFace, topicHtm, commentHtm) {
+    'text!../view/comment.htm',
+    '../../../global/upload_form',
+], function ($, Class, Common, Util, qqFace, topicHtm, commentHtm, uploadForm) {
     var Index = Class.create({
         initialize: function () {
             this.initPage();
@@ -25,6 +26,7 @@ define([
                 }
             })
             this.initEmotion();
+           
         },
 
         bindEvent: function () {
@@ -32,10 +34,16 @@ define([
                 'click': {
                     '.msg-comment': $.proxy(this.commentShow, this), //显示评论内容
                     '.comment-opt-reply': $.proxy(this.replyComment, this), //回复
+                    '#publish-icon-pic': $.proxy(this.selectPicOpt, this), //选择图片
                 },
 
             });
 
+        },
+        selectPicOpt:function(){
+            new uploadForm($('.publish-icon-pic'),function(result){
+                console.log(result);
+            })
         },
         initEmotion: function () {
             $('.emoji_container').remove();
@@ -54,8 +62,8 @@ define([
             });
 
             // 评论输入框表情包
-            $("#comment-opreate .comment-ipt").emoji({
-                button: "#comment-opreate .icon-comment-expression",
+            $("#comment-operate .comment-ipt").emoji({
+                button: "#comment-operate .icon-comment-expression",
                 showTab: false,
                 animation: 'fade',
                 icons: [{
@@ -66,8 +74,8 @@ define([
                     placeholder: "#qq_{alias}#"
                 }]
             });
-            $("#reply-opreate .comment-ipt").emoji({
-                button: "#reply-opreate .icon-comment-expression",
+            $("#reply-operate .comment-ipt").emoji({
+                button: "#reply-operate .icon-comment-expression",
                 showTab: false,
                 animation: 'fade',
                 icons: [{
@@ -81,7 +89,7 @@ define([
 
         },
         replyComment: function (e) {
-            const replyHtm = `<div class="reply-opreate" id="reply-opreate">
+            const replyHtm = `<div class="reply-operate" id="reply-operate">
             <div class="comment-ipt-area">
                 <input class="comment-ipt" type="text">
             </div>
@@ -96,13 +104,13 @@ define([
             const $currentTarget = $(e.currentTarget);
             const $replyItem = $currentTarget.closest('.reply-item');
             const $commentSelf = $currentTarget.closest('.comment-self');
-            const $replyOpreate = $('#reply-opreate');
-            if ($replyItem.find('#reply-opreate').length > 0 || $commentSelf.siblings('#reply-opreate').length > 0) {
-                $replyOpreate.remove();
+            const $replyoperate = $('#reply-operate');
+            if ($replyItem.find('#reply-operate').length > 0 || $commentSelf.siblings('#reply-operate').length > 0) {
+                $replyoperate.remove();
                 this.initEmotion();
                 return;
             } else {
-                $replyOpreate.remove();
+                $replyoperate.remove();
             }
             if ($replyItem.length > 0) {
                 $replyItem.append(replyHtm);

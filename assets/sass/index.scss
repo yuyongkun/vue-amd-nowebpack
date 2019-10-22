@@ -81,9 +81,9 @@
     }
 
     .published {
+        line-height: 1;
         .c-nav {
             margin-bottom: 10px;
-
             .nav-items {
                 display: flex;
                 padding: 12px 20px;
@@ -115,6 +115,7 @@
 
         .topic-list-wrap {
             .topic-list {
+                line-height: 1;
                 margin-bottom: 10px;
                 background-color: #fff;
 
@@ -157,8 +158,6 @@
                             display: flex;
                             align-items: center;
                             margin-bottom: 10px;
-                            line-height: 1;
-
                             .c-username {
                                 margin-right: 10px;
                                 font-size: 16px;
@@ -172,14 +171,13 @@
                         }
 
                         .msg-occupation {
-                            line-height: 1;
                             margin-bottom: 15px;
                             font-size: 12px;
                             color: #788cff;
                         }
 
                         .msg-cc {
-                            line-height: 24px;
+                            line-height: 1.5;
                         }
                     }
                 }
@@ -243,7 +241,7 @@
                     }
                 }
 
-                .comment-opreate {
+                .comment-operate {
                     display: flex;
                     border-bottom: 1px solid #ddd;
                     padding-bottom: 10px;
@@ -301,7 +299,7 @@
                     }
                 }
 
-                .reply-opreate {
+                .reply-operate {
                     display: flex;
                     flex-direction: column;
                     padding: 14px 20px;
@@ -429,7 +427,7 @@
                                     border-bottom: none;
                                 }
 
-                                .reply-opreate {
+                                .reply-operate {
                                     margin-top: 10px;
                                     margin-left: 0px;
                                     margin-bottom: 0px;
@@ -441,39 +439,6 @@
             }
         }
     }
-
-    .qqFace {
-        margin-top: 8px;
-        &:after, &:before {
-            content: '';
-            position: absolute;
-            border-left-style: solid;
-            border-left-color: transparent;
-            border-right-style: solid;
-            border-right-color: transparent;
-            border-bottom-style: solid;
-        }
-
-        &:after {
-            top: -7px;
-            left: 6px;
-            border-left-width: 7px;
-            border-right-width: 7px;
-            border-bottom-width: 7px;
-            border-bottom-color: #ccc;
-        }
-
-        &:before {
-            top: -6px;
-            left: 8px;
-            border-left-width: 5px;
-            border-right-width: 5px;
-            border-bottom-width: 6px;
-            border-bottom-color: #fff;
-            z-index: 1;
-        }
-    }
-    
 }
 
 // 正在加载

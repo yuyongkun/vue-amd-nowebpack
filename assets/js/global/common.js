@@ -59,7 +59,7 @@
         removeProcessbox: function () {
             $('#single-loading').remove();
         },
-        upload: function (file, cb) {
+        uploadProcess: function (file, cb) {
             if (!window.FormData) {
                 common.msg.error('当前浏览器版本过低请升级您的浏览器');
                 return;
@@ -147,58 +147,47 @@
         formupload: function (obj) {
             obj = obj || {};
             var domTarget = obj.target,
-                method = obj.method || 'post',
-                notmultipleflag = obj.notmultipleflag, //true:单个文件，false:多个文件
-                params = obj.params,
-                action = obj.action,
-                success = obj.success;
-
+                success = obj.success,
+                uploadenable=obj.uploadenable,
+                acceptType = obj.acceptType || 'image/jpg,image/jpeg,image/png,image/gif',
+                uploadurl = obj.uploadurl,
+                uploadparam = obj.uploadparam,
+                err = obj.err;
             //动态创建form表单
-            var formHtm =
-                '<form id="form-upload" enctype="multipart/form-data" encoding="multipart/form-data" target="uploadiframe" action="' + action + '" method="' + method + '">' +
-                '<input id="file-upload"  type="file" name="file[]" accept="image/jpg,image/jpeg,image/png,image/gif" ' + (!notmultipleflag ? 'multiple' : '') + ' style="position:absolute;left:0;font-size:0px;opacity: 0;filter: alpha(opacity=0);cursor: pointer;z-index:2">' +
-                params + '<iframe id="iframe-upload" name="uploadiframe" style="display:none"></iframe></form>';
-            $('#form-upload').remove();
+            $('form#form').remove();
+            var formHtm = '<form id="form" enctype="multipart/form-data" encoding="multipart/form-data" target="uploadiframe" action="' + uploadurl + '" method="post">' +
+                '<input style="display:none;" type="file" id="file" name="file[]" accept="' + acceptType + '" multiple="">' +
+                (uploadparam ? uploadparam : '') +
+                '<iframe id="uploadiframe" name="uploadiframe" style="display:none"></iframe></form>';
             $(formHtm).insertBefore(domTarget);
-            var $fileupload = $('#file-upload'),
-                $iframeupload = $('#iframe-upload'),
-                $formupload = $('#form-upload');
-            $fileupload.change(function () {
-                if (window.FormData) {
-                    var formData = new FormData($formupload[0]);
-                    common.ajax({
-                        url: action,
-                        data: formData,
-                        contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-                        processData: false, // 告诉jQuery不要去处理发送的数据
-                        success: function (data) {
-                            success && success(data);
-                        },
-                        error: function (xhr, responseText) {
-                            common.msg.error('网络异常，' + responseText);
+            var $file = $('#file');
+            var self = this;
+            $file.change(function () {
+                //立即执行回调函数
+                (function (callback) {
+                    //表单提交上传
+                    $('#form').submit();
+                    uploadenable($file[0])
+                    // common.showloading();
+                    self.timeid = setInterval(callback, 200);
+                })(function () {
+                    var content = $('#uploadiframe')[0].contentDocument.body && $('#uploadiframe')[0].contentDocument.body.innerText;
+                    if (content) {
+                        var result = JSON.parse(content);
+                        //关闭setInterval()循环函数
+                        window.clearInterval(self.timeid);
+                        // common.removeloading();
+                        $('form#form').remove();
+                        if (result.success) {
+                            success && success(result);
+                        } else {
+                            err && err(result.info);
                         }
-                    });
-
-                } else {
-                    (function (cb) {
-                        common.showloadbox();
-                        $formupload.submit();
-                        obj.timeid = setInterval(cb, 200);
-                    })(function () {
-                        var uploadiframe = $('#upload-iframe')[0];
-                        var content = uploadiframe.contentDocument.body && uploadiframe.contentDocument.body.innerText;
-                        if (content) {
-                            common.removeloading();
-                            //关闭setInterval()循环函数
-                            window.clearInterval(obj.timeid);
-                            $formupload.remove();
-                            success && success(JSON.parse(content));
-                        }
-                    });
-                }
+                    }
+                });
             });
             if (!window.ActiveXObject) {
-                $fileupload.trigger('click');
+                $file.trigger('click');
             }
         },
 
