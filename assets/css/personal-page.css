@@ -3069,13 +3069,14 @@ a:hover {
   font-weight: bold;
 }
 
-.main-c .published .c-nav .c-tip {
+.main-c .published .c-nav .latest-news {
+  display: none;
   text-align: center;
   padding: 10px 0px;
   background-color: #f9b8b8;
 }
 
-.main-c .published .c-nav .c-tip .c-btn {
+.main-c .published .c-nav .latest-news .c-btn {
   font-size: 12px;
   color: #fa5c7c;
   cursor: pointer;
@@ -3149,6 +3150,25 @@ a:hover {
 
 .main-c .published .topic-list-wrap .topic-list .msg-body .msg-rt .msg-cc {
   line-height: 1.5;
+}
+
+.main-c .published .topic-list-wrap .topic-list .msg-body .msg-rt .msg-cc .msg-cc-imgs {
+  margin-top: 5px;
+  width: 440px;
+}
+
+.main-c .published .topic-list-wrap .topic-list .msg-body .msg-rt .msg-cc .msg-cc-imgs .msg-cc-item {
+  float: left;
+  width: 110px;
+  height: 110px;
+  margin: 0 10px 10px 0;
+  background-color: #ddd;
+  overflow: hidden;
+}
+
+.main-c .published .topic-list-wrap .topic-list .msg-body .msg-rt .msg-cc .msg-cc-imgs .msg-cc-item img {
+  display: block;
+  width: 100%;
 }
 
 .main-c .published .topic-list-wrap .topic-list .msg-footer {

@@ -1,4 +1,3 @@
-
 <div class="comment-wrap" id="comment-wrap">
     <div class="comment-operate" id="comment-operate">
         <div class="comment-head">
@@ -58,28 +57,27 @@
             </div> -->
             <div class="reply-list">
                 <%if(replylist.length>0){%>
-                    <%for(var j=0,gfn=replylist.length;j < gfn;j++){
+                <%for(var j=0,gfn=replylist.length;j < gfn;j++){
                         replyItem=replylist[j];
                     %>
-                    <div class="reply-item" data-replyid="<%=replyItem.reply_id%>">
-                        <div class="comment-detail">
-                            <div class="comment-intro">
-                                <span class="comment-username"><%=replyItem.username_from%></span>回复
-                                <span class="comment-username"><%=replyItem.username_to%>：</span>
-                                <span class="comment-txt"><%=replyItem.reply_content%></span>
-                            </div>
-                            <div class="comment-datetime">
-                                <%=item.datetime%>
-                                <div class="comment-opt">
-                                    <div class="comment-opt-reply">回复</div>
-                                    <div class="comment-opt-praise"><i
-                                            class="icon-praise"></i><%=replyItem.thumb_amount%>
-                                    </div>
+                <div class="reply-item" data-replyid="<%=replyItem.reply_id%>">
+                    <div class="comment-detail">
+                        <div class="comment-intro">
+                            <span class="comment-username"><%=replyItem.username_from%></span>回复
+                            <span class="comment-username"><%=replyItem.username_to%>：</span>
+                            <span class="comment-txt"><%=replyItem.reply_content%></span>
+                        </div>
+                        <div class="comment-datetime">
+                            <%=item.datetime%>
+                            <div class="comment-opt">
+                                <div class="comment-opt-reply">回复</div>
+                                <div class="comment-opt-praise"><i class="icon-praise"></i><%=replyItem.thumb_amount%>
                                 </div>
                             </div>
                         </div>
-                        <!-- 回复 -->
-                        <!-- <div class="reply-operate">
+                    </div>
+                    <!-- 回复 -->
+                    <!-- <div class="reply-operate">
                             <div class="comment-ipt-area">
                                 <input class="comment-ipt" type="text">
                             </div>
@@ -91,8 +89,8 @@
                                 <div class="btn-yellow comment-send">评论</div>
                             </div>
                         </div> -->
-                    </div>
-                    <%}%>
+                </div>
+                <%}%>
                 <%}%>
 
             </div>

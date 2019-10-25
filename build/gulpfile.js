@@ -267,17 +267,20 @@ gulp.task('mock', ['server']);
 // 启动代理服务
 let mock = require('./mock.js');
 gulp.task('server', ['sass', 'lint'], () => {
-    browserSync.init({
-        // open: false,
+    const env_mock = process.argv.includes('mock');
+    const serverObj = {
+        baseDir: ["../Views", "../"],
+    }
+    if (env_mock) {
+        Object.assign(serverObj, {
+            middleware: mock.data()
+        })
+    }
+    browserSync.init([],{
         port: 3010,
         // 1，作为静态资源服务器使用
         watch: true,
-        server: process.argv.includes('mock') ? {
-            baseDir: ["../Views", "../"],
-            middleware: mock.data()
-        } : {
-                baseDir: ["../Views", "../"],
-            },
+        server: serverObj,
 
         //2，作为代理服务器使用
         // proxy: {
@@ -288,12 +291,11 @@ gulp.task('server', ['sass', 'lint'], () => {
         //     }
         // }
     });
-
+    
     gulp.watch('../assets/sass/**/*.scss', ['sass']);
     gulp.watch(['../assets/js/global/**/*.js', '../assets/js/modules/**/*.js'], ['lint']);
     gulp.watch(['../Views/**/*.[cshtml,html]']).on('change', reload);
 });
-
 
 
 //scss文件转成css文件

@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-    <div class="layout">
+    <div class="layout" id="app">
         <div class="container">
             <div class="main-l">
                 <div class="main-l-tp">
@@ -83,7 +83,7 @@
                     <div class="publish-operate">
                         <div class="publish-iconlist">
                             <span class="publish-icon publish-icon-emotion">表情</span>
-                            <span class="publish-icon publish-icon-pic" id="publish-icon-pic">图片</span>
+                            <span class="publish-icon publish-icon-pic">图片</span>
                             <span class="publish-icon publish-icon-video">视频</span>
                             <span class="publish-icon publish-icon-topic">话题</span>
                             <span class="publish-icon publish-icon-quest">提问</span>
@@ -107,13 +107,11 @@
                             <span class="nav-item">教程</span>
                             <span class="nav-item">我关注的</span>
                         </div>
-                        <div class="c-tip">
+                        <div class="latest-news" id="latest-news">
                             <span class="c-btn">有新消息，点击刷新</span>
                         </div>
                     </div>
-                    <div class="topic-list-wrap" id="topic-list-wrap">
-
-                    </div>
+                    <div class="topic-list-wrap" id="topic-list-wrap"></div>
                 </div>
 
             </div>
@@ -309,7 +307,7 @@
             </div>
         </div>
     </div> -->
-    
+
     <script>
         (function () {
             var headerDom = {

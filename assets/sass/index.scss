@@ -100,7 +100,8 @@
                 font-weight: bold;
             }
 
-            .c-tip {
+            .latest-news {
+                display: none;
                 text-align: center;
                 padding: 10px 0px;
                 background-color: #f9b8b8;
@@ -178,6 +179,24 @@
 
                         .msg-cc {
                             line-height: 1.5;
+                            .msg-cc-imgs{
+                                margin-top: 5px;
+                                width:440px;
+                                .msg-cc-item{
+                                    float: left;
+                                    width:110px;
+                                    height:110px;
+                                    margin:0 10px 10px 0;
+                                    background-color: #ddd;
+                                    overflow: hidden;
+                                    img{
+                                        display: block;
+                                        width:100%;
+                                    }
+                                }
+                                
+                            }
+                            
                         }
                     }
                 }

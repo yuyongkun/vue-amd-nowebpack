@@ -711,7 +711,7 @@
                 }
                 opt.error && opt.error();
             };
-            $.ajax(options);
+            return $.ajax(options);
         },
 
         /**

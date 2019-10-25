@@ -2,6 +2,25 @@ var Mock = require("mockjs");
 exports.data = function () {
     return [
         {
+            route: '/latestnews',
+            handle: function (req, res, next) {
+                res.writeHead(200, {
+                    "Content-type": "application/json;charset=UTF-8"
+                });
+                var Random = Mock.Random;
+                Random.integer();
+                Random.string('lower', 4);
+                Random.date('yyyy-MM-dd');
+                var data = Mock.mock({
+                    "success": true,
+                    "hasMsg":"@boolean"
+                });
+
+                res.write(JSON.stringify(data));
+                res.end();
+            }
+        },
+        {
             route: '/upload',
             handle: function (req, res, next) {
                 res.writeHead(200, {
@@ -36,7 +55,7 @@ exports.data = function () {
                 Random.date('yyyy-MM-dd');
                 var data = Mock.mock({
                     "success": true,
-                    "datalist|3": [{
+                    "datalist|2": [{
                         "topic_id|+1": 1,
                         "userportrait": "https://images.skycreative.cn/avatar/trykle.png",
                         "username": "@string('lower',4)",
